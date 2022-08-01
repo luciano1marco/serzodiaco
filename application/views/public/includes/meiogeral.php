@@ -18,28 +18,28 @@
     font-size: 40px;
     text-align: left;
     margin-top: 30px;
-    color: #992691;
+    color: #FF6600;
 }
 #meiogeral h3{
     font-weight: bold;
     font-size: 36px;
     text-align: center;
     margin-top: 30px;
-    color: #400229;
+    color: #FF6600;
 }
 #meiogeral h4{
     font-weight: bold;
     font-size: 26px;
-    text-align: left;
+    text-align: center;
     margin-top: 5px;
     color: #FF6600;
 }
 
 #meiogeral h5{
     font-size: 20px;
-    text-align: justify;
+    text-align: center;
     margin-top: 5px;
-    color: #995CB4;
+    color: #FF6600;
 }
 #meiogeral h6{
     font-size: 16px;
@@ -74,7 +74,33 @@
     margin-top: 30px;
     color: #FF6600;
 }
+body{
+  text-align: center;
+}
+.slide-controller:nth-child(1):checked ~ .slide-show .slides-list{--selected-item: 0;}
+.slide-controller:nth-child(2):checked ~ .slide-show .slides-list{--selected-item: 1;}
+.slide-controller:nth-child(3):checked ~ .slide-show .slides-list{--selected-item: 2;}
+.slide-controller:nth-child(4):checked ~ .slide-show .slides-list{--selected-item: 3;}
 
+.slide-show{
+  overflow: hidden;
+}
+
+.slides-list{
+  --selected-item: 0;
+  --total-items: 4;
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 0;
+  position: relative;
+  left: calc(var(--selected-item) * -100%);
+  width: calc(var(--total-items) * 100%);
+  transition: left 0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
 </style>
 
 <div id="meiogeral">
@@ -82,18 +108,18 @@
         <div class="row">
              <!-- fundo rio grande por elas -->   
             <a href="#">
-                <img class="img-responsive" src="public/images/fundomeio.png"  >
+                <img class="img-responsive" src="public/images/fundomeio.jpg"  >
             </a>
             <!-- triangulo -->
             <a href="#">
-                <img class="img-responsive" src="public/images/triangulo.png" >
+                <img class="img-responsive" src="public/images/trian.png" >
             </a>
               <!-- o que é --> 
             <div class="container-fluid">
                 <div class="row">       
                     <div class= "col-lg-12" id="oquee">
-                        <h3>O que é a Rede Mulheres</h3>
-                        <h3>Empreendedoras?</h3><br><br><br><br><br><br>
+                        <h1>Nossa História</h1>
+                        <h5>Zodíaco - 1978</h5><br><br><br><br><br><br>
                     </div>
                    
                     </div>
@@ -227,113 +253,43 @@
                         </div>
                     </div>
                     <!-- lista laranja -->
-                    
                     <div class="col-lg-12">
                         <a href="#">
                             <img class="img-responsive" src="public/images/laranja.png" >
                          </a>
                     </div> 
-                   
-                    <!-- mulheres empreendedoras -->
-                    <div class="col-lg-12">
-                        <div class="col-md-2"> </div>
-                        <div class="col-md-4" id="casos" >
-                            <h8>Mulheres Empreendedoras</h8><br><br>
-                        </div>
-                    </div> 
-                    <div class="col-md-12">
-                        <div class="col-md-2"> </div>
-                        <div class="col-md-6">
-                                <h7>Conheça alguns exemplos de mulheres que já empreendem!</h7><br><br>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-4"> 
-                            <h6>Dona do Bazar Iza, trabalha com vendas online de Lingerie, Roupas, Brinquedos e opções de Presentes.</h6>
-                            <div class="col-md-2">
-                                <div class="col-md-2">
-                                     <h2><img src="public/images/JESSICA-XAVIER-DA-CONCEICAO.jpg" width="70" height="70" class="rounded-circle"></h2>
-                                </div>
-                            </div>
-                            <div class="col-md-10">
-                                <br><br> 
-                                <div class="col-md-8">
-                                    <h9>Jessica Xavier da Conceição</h9> 
-                                </div>
-                                <div class="col-md-8">
-                                    <h10>Empreendedora Online</h10>   
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                                <h6>Dona da Bah! Top, faz palhas Italianas Artesanais. Vende seus produtos através das Redes Sociais.</h6>
-                                <div class="col-md-2">
-                                <div class="col-md-2">
-                                     <h2><img src="public/images/Patricia-Cardoso-Gutierres.png" width="70" height="70" class="rounded-circle"></h2>
-                                </div>
-                            </div>
-                            <div class="col-md-10">
-                                <br><br> 
-                                <div class="col-md-8">
-                                    <h9>Patricia Cardoso Gutierrs</h9> 
-                                </div>
-                                <div class="col-md-8">
-                                    <h10>Empreendedora Online</h10>   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-12"><br><br><br><br></div>
+                   <!--teste de slider -->
+                    <input type="radio" class="slide-controller" name="slide" checked />
+                    <input type="radio" class="slide-controller" name="slide" />
+                    <input type="radio" class="slide-controller" name="slide" />
+                    <input type="radio" class="slide-controller" name="slide" />
 
-                    <div class="col-md-12">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-4"> 
-                            <h6>Dona de loja de Confecções na 4° secção da Barra. Trabalha com moda masculina e feminina, além de produtos de Bazar, moda Fitness e Lingerie.</h6>
-                            <div class="col-md-2">
-                                <div class="col-md-2">
-                                     <h2><img src="public/images/Ana-Karina-Simoes-Leal.jpg" width="70" height="70" class="rounded-circle"></h2>
-                                </div>
-                            </div>
-                            <div class="col-md-10">
-                                <br><br> 
-                                <div class="col-md-8">
-                                    <h9>Ana Karina Simões Leal</h9> 
-                                </div>
-                                <div class="col-md-8">
-                                    <h10>Lojista</h10>   
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                                <h6>Moradora da Vila Maria, trabalha, junto com sua filha, na produção e venda de Bolos de Pote.</h6>
-                                <div class="col-md-2">
-                                <div class="col-md-2">
-                                     <h2><img src="public/images/Orondina-Soares-Rodrigues.jpg" width="70" height="70" class="rounded-circle"></h2>
-                                </div>
-                            </div>
-                            <div class="col-md-10">
-                                <br><br> 
-                                <div class="col-md-8">
-                                    <h9>Orondina Soares Rodrigues</h9> 
-                                </div>
-                                <div class="col-md-8">
-                                    <h10>Doceira</h10>   
-                                </div>
-                            </div>
-                        </div>
+                    <div class="slide-show" >
+                    <ul class="slides-list" >
+                        <li class="slide" >
+                        <img src="public/images/banner.png?image=8" />
+                        </li>
+                        <li class="slide" >
+                        <img src="public/images/fundomeio.jpg?image=0" />
+                        </li>
+                        <li class="slide" >
+                        <img src="public/images/logo.png?image=6" />
+                        </li>
+                        <li class="slide" >
+                        <img src="public/images/triangulo.png?image=1" />
+                        </li>
+                    </ul>
                     </div>
 
-                    <!-- lista laranja -->
-                    <div class="col-lg-12">
+
+
+
+                     <!-- lista laranja -->
+                     <div class="col-lg-12">
                         <a href="#">
                             <img class="img-responsive" src="public/images/laranja.png" >
                          </a>
-                    </div> 
-                   
+                    </div>
                     <!-- conheça nossas empreendedoras -->
                     <div class="col-lg-12">
                         <div class="col-md-3"> </div>

@@ -3,13 +3,13 @@
 if (!function_exists('configuracao'))
 {
 	function configuracao(){
-		$data['title'] = 'Rio Grande por Elas ';
+		$data['title'] = 'S.E.R.Zodíaco ';
 		$data['CHARSET'] = 'UTF-8';	
 		//$data['CHARSET'] = 'ISO-8859-1';						
 		$data['favicon'] = 'favicon.ico';
-		$data['description'] = 'PMRG - Superintendência de Tecnologia da Informação';
-		$data['copyright'] =  'PMRG - Superintendência de Tecnologia da Informação';
-		$data['author'] =  'PMRG - Superintendência de Tecnologia da Informação';
+		$data['description'] = 'LCM - Luciano Correa Marco';
+		$data['copyright'] =  'LCM - Luciano Correa Marco';
+		$data['author'] =  'LCM - Luciano Correa Marco';
 
 		$data['arq_css'] = null;
 		$data['arq_js'] = null;

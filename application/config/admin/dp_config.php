@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['title']      = 'Rio Grande por Elas';
-$config['title_mini'] = 'RGPE';
-$config['title_lg']   = 'Rio Grande por Elas';
+$config['title']      = 'S.E.R.Zodíaco';
+$config['title_mini'] = 'SERZ';
+$config['title_lg']   = 'Sociedade Esportiva e Racreativa Zodíaco';
 
 
 

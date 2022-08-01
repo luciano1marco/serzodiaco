@@ -11,13 +11,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['host_dev'] = array('localhost', '127.0.0.1', '192.168.0.14', '192.168.0.9', '::1', '192.168.0.116');
 
 // Fill in the file of your project here when you develop locally.
-$host_dev = 'riograndeporelas';
+$host_dev = 'serzodiaco';
 
 // Fill in the domain name here when your project is online.
 // Example : www.johndoe.com
 //           johndoe.com
 //$host_prod = 'riogrande.rs.gov.br';
-$host_prod = 'www.riogrande.rs.gov.br/riograndeporelas';
+$host_prod = 'www.serzodiaco.com.br';
 
 // WARNING: Do not modify the lines below
 $domain = (in_array($_SERVER['HTTP_HOST'], $config['host_dev'], TRUE)) ? $_SERVER['HTTP_HOST'] . '/' . $host_dev : $host_prod;

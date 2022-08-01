@@ -10,63 +10,45 @@
 
   </head>
  <!--- script para o menu  -->           
-<style>
+ <style>
 #Mymenu{
-    background-color: #E1E1E1;
-    color: white;
+    background-color: #ebebeb;
     position: relative;
     margin-top: 0 !important;
 }
-#Mymenu h3{
-    font-size: 30px;
+#Mymenu h2{
+    font-size: 40px;
     text-align: center;
     margin-top: 30px;
-    color: #992691;
+    color: #000;
 }
-#Mymenu h5{
+#Mymenu h4{
     font-size: 15px;
     font-weight: bold;
     text-align: center;
     margin-top: 5px;
-    color: #FA6C00;
+    color: #000;
 }
 #botoes{
-    margin-top: 40 !important;  
+    margin-top: 40 !important;
     text-decoration: none;
-    color: #FB7200;
-   
+ }
+#botoes :hover{
+    color: #e67817;
 }
+
 #sociais{
     margin-top: 30 !important;  
-   
 }
-#Mymenu button{
-    background-color: #E1E1E1;
-    color: #992691;
-   
-}
-#Mymenu button:hover{
-    border-color: #995CB4 ;
 
-}
+
 #Mymenu p{
     text-align: center;
-    
-}
-
+ }
 #Mymenu a{
-    color: #992691;
+    color:#000
 }
 
-#mymenu a:hover,
-#mymenu a:focus {
-    text-decoration: none;
-    color: #FB7200;
-}
-
-.dropdown:hover>.dropdown-menu {
-     display: block;
-}
 
 </style>  
 
@@ -74,62 +56,63 @@
 <section class="content-fluid" id="topo">
             <div class="row ">
                 <div class="col-lg-12">
+                    <div class="col-md-2">
+                        <a href="#">
+                            <img class="img-responsive" src="public/images/logo.png" >
+                        </a>
+                    </div>
                     <div class="col-md-3" >
-                        <h3>Rio Grande Por Elas</h3>
-                        <h5> Mulheres Empreendedoras</h5>
+                        <h2>S.E.R.Zodíaco</h2>
+                        <h4> Sociedade Esportiva e Recreativa Zodíaco</h4>
                     </div>
                     
-                    <div class="col-md-6" >
+                    <div class="col-md-5" >
                         <div class="row" id="botoes">
                             <div class="dropdown">
                                 <button type="button" class="btn btn-outline-light"> 
-                                    <a href="/riograndeporelas/">Home</a>
+                                    <a href="/serzodiaco/">Home</a>
                                 </button>
                             </div>
                             <div class="dropdown">
                                 <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   <a href="#" >Projeto </a>
+                                   <a href="" >Projetos </a>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#oquee">O que é?</a>
+                                    <a class="dropdown-item" href="#oquee">História</a>
                                     <a class="dropdown-item" href="#atuacao">Atuação</a>
                                     <a class="dropdown-item" href="#objetivos">Objetivos</a>
                                     <a class="dropdown-item" href="#apoiadores">Apoiadores</a>
                                 </div>
                             </div>
                             <div class="dropdown">
-                                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <a href="#">Empreendedoras</a> 
+                                <button class="btn btn-outline-light " type="button" >
+                                    <a href="">Escolinha</a> 
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#casos">Casos de Sucesso</a>
-                                    <a class="dropdown-item" href="#conheca">Conheça nossas Empreendedoras</a>
-                                </div>
                             </div>   
                             <div class="dropdown">
+                                <button class="btn btn-outline-light " type="button" >
+                                    <a href="#imagens">Imagens</a> 
+                                </button>
+                            </div> 
+                            <div class="dropdown">
                                 <button type="button" class="btn btn-outline-light">
-                                    <a href="/riograndeporelas/auth/login">Acessar</a>
+                                    <a href="/serzodiaco/register">Associe-se</a>    
                                 </button>
                             </div>
                             <div class="dropdown">
                                 <button type="button" class="btn btn-outline-light">
-                                    <a href="/riograndeporelas/register">Cadastrar</a>    
-                                </button>
-                            </div>
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-outline-light">
-                                    <a href="/riograndeporelas/participantes">Participantes</a>    
+                                    <a href="/serzodiaco/auth/login">Acessar</a>
                                 </button>
                             </div>              
                         </div>  
                     </div>
-                    <div class="col-md-3" id="sociais">
+                    <div class="col-md-2" id="sociais">
                         <span><h4>
                             <ul class="list-inline">
-                                <li><a target="_blank" href="http://www.facebook.com/PrefeituraMunicipaldoRG"           class="facebook"> <i class="fa fa-facebook" > </i></a></li>
-                                <li><a target="_blank" href="http://twitter.com/PMRGoficial"                            class="twitter">  <i class="fa fa-twitter" >  </i></a></li>
-                                <li><a target="_blank" href="https://www.instagram.com/prefeituradoriogrande/"          class="instagram"><i class="fa fa-instagram"> </i></a></li>
-                                <li><a target="_blank" href="https://www.youtube.com/channel/UCKp-F9htcpRVXTJUzEaSxzA"  class="youtube">  <i class="fa fa-youtube" >  </i></a></li>
+                                <li><a target="_blank" href="http://www.facebook.com/ser.zodiaco"                       class="facebook"> <i class="fa fa-facebook" > </i></a></li>
+                                <li><a target="_blank" href="http://twitter.com/"                            class="twitter">  <i class="fa fa-twitter" >  </i></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/"          class="instagram"><i class="fa fa-instagram"> </i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/"  class="youtube">  <i class="fa fa-youtube" >  </i></a></li>
                             </ul>
                         </h4></span>
                     </div>
