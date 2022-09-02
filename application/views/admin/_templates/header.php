@@ -51,10 +51,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/ionicons/css/ionicons.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
-        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/skins/skin-blue.min.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/skins/skin-red.min.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/skins/skin-orange.min.css'); ?>">
         
-        <!-- ICHECK e LIGHT BOX -->
-        <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/icheck/skins/square/blue.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/skins/skin-red-light.min.css'); ?>">
+        
+        
+        <!-- ICHECK e LIGHT BOX--> 
+        <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/icheck/skins/square/red.css'); ?>">
+        
+        
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/lightbox2/css/lightbox.min.css'); ?>">
         
         <!-- DATATABLES -->
@@ -192,7 +198,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
     </head>
 
-    <body class="hold-transition skin-blue fixed sidebar-mini">
+    <body class="hold-transition skin-red fixed sidebar-mini">
     
     <!-- Inputs para passar o BASE URL e Controller para o JS -->
     <input type="hidden" id="base_url" value="<?= base_url() ?>" />

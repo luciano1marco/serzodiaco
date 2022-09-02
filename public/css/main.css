@@ -73,7 +73,7 @@ label {
 
 .search-text {
     margin-top: 50px;
-    background-color: #7dabdb;
+    background-color: #e9b3aa;
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -86,7 +86,7 @@ label {
 }
 
 .search-text .btn-search {
-    background-color: #7dabdb;
+    background-color: #e9b3aa;
     border: 1px solid #FFF;
     color: #FFF;
     padding: 11px 22px;
@@ -94,7 +94,7 @@ label {
 
 .search-text .btn-search:hover {
     background-color: #FFF;
-    color: #7dabdb;
+    color: #e9b3aa;
 }
 
 footer {
@@ -191,7 +191,7 @@ fa-tumblr:hover,
 }
 
 .modal-header {
-    background-color: #337ab7;
+    background-color: #eb9181;
 }
 
 .modal-title {

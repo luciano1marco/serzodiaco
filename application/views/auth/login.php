@@ -1,33 +1,27 @@
 <style>
 #logar{
-    background-image: url("/riograndeporelas/public/images/fundologin.png");
+    background-image: url("/serzodiaco/public/images/banner.png");
     width: 100%;
     height: 100%;
     position: relative;
 }
-
-#borda{
-    border: solid 1px !important;
-   
-    background-color:#fdfdffa1;
+#bota{
+    margin-left: 90px;
 }
-#bt{
-    background-color:#A72AA0;
-    text-align: center;
-    color:aliceblue;
-   
-    font-size: 20px;
+#borda{
+    background-color:#fdfdffa1;
+    align-items: center;
 }
 #bt:hover{
-    background-color:#350B31;  
+    background-color:#ea831aff;  
 }
 </style>
 
 
 <div id="logar">
-    <div class="content"><br><br><br><br><br>
+    <div class="content">
             <div class="login-logo">
-                <a href="#"><img src="/riograndeporelas/public/images/redelogin.png" ></a>
+                <a href="#"><img src="/serzodiaco/public/images/logo.png" ></a>
             </div>
    
             <div class="row" ><br>
@@ -46,19 +40,18 @@
                                 </div><br>
                             <?php $cancel = '<i class="fa fa-times"></i> <span>Cancelar</span>'; ?>                                                 
                             <?php $anchor = 'home'?> 
-                            <?php $cadastrar = '<i class="fa fa-check"></i> <span>Cadastrar</span>'; ?>                                                 
                             <?php $ancho = 'register'?>               
-                            <div class="row" >
-                                <div class="col-xs-4"><br>
-                                    <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-default btn-flat', 'id' =>'bt')); ?>
+                            <!-- botões do login-->
+                            <div class="row" id="bota" >
+                                <div class="col-xs-4 "><br>
+                                    <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-primary btn-block btn-flat', 'id' =>'bt')); ?>
                                 </div>
-                                <div class="col-xs-4"><br>
-                                    <?php echo anchor($ancho, $cadastrar, array('class' => 'btn btn-default btn-flat', 'id' =>'bt')); ?>
-                                </div>
+                               
                                 <div class="col-xs-4"><br>
                                     <?php echo form_submit('submit', 'Entrar', array('class' => 'btn btn-danger btn-block btn-flat', 'id' =>'bt'));?>
                                 </div>
                             </div><br><br>
+                             <!--- fim botões---->    
                         <?php echo form_close();?>
 
                     
