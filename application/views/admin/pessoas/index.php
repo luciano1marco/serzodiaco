@@ -26,7 +26,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 					</div>
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo anchor($anchor . '/create', '<i class="fa fa-plus"></i> ' . $texto_btn_create, array('class' => 'btn btn-block btn-danger btn-flat')); ?></h3>
+						<h3 class="box-title"><?php echo anchor($anchor . '/create', '<i class="fa fa-plus"></i> ' . $texto_btn_create, array('class' => 'btn btn-block btn-success btn-flat')); ?></h3>
 					</div>
 					<div class="box-body">
 
@@ -35,8 +35,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 								<tr>
 									<!--<th>ID</th>-->
 									<th>Nome</th>
+									<th>CPF</th>
 									<th>Email</th>
 									<th>Telefone</th>
+									<th>Endereço</th>
 									<th>Ação</th>
 								</tr>
 							</thead>
@@ -47,9 +49,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 									<tr>
 
 										<td><?php echo htmlspecialchars($apa['nome'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<td><?php echo htmlspecialchars($apa['cpf'], ENT_QUOTES, 'UTF-8'); ?></td>
 										<td><?php echo htmlspecialchars($apa['email'], ENT_QUOTES, 'UTF-8'); ?></td>
 										<td><?php echo htmlspecialchars($apa['telefone'], ENT_QUOTES, 'UTF-8'); ?></td>
-
+										<td><?php echo htmlspecialchars($apa['endereco'], ENT_QUOTES, 'UTF-8'); ?></td>
+										
 										<!-- Opções -->
 										<td>
 											<?php echo anchor($anchor . '/edit/' . $apa['id'], "<button class=\"btn btn-danger\"><i class=\"fa fa-pencil\"></i> Editar</button>"); ?>

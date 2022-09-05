@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
     
             <div id="register">
-                    <h2>Cadastrar para participar da Rede</h2>
+                    <h2>Cadastre-se para Virar Socio</h2>
             </div>
       
     </main>
@@ -60,27 +60,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php echo $q_email; ?>
                 <?php echo $q_nome; ?>
                 <?php echo $q_datanasc; ?>
-                <?php echo $q_nomeusuario; ?>
-                <?php echo $q_senha; ?>
                 <?php echo $q_logradouro; ?>
-                <?php echo $q_numero; ?>
-                <?php echo $q_complemento; ?>
-                <?php echo $q_bairro; ?>
-                <?php echo $q_cep; ?>
-                <?php echo $q_cidade; ?>
-                <?php echo $q_estado; ?>
                 <?php echo $q_cpf; ?>
-                <?php echo $q_cnpj; ?>
-                <?php echo $q_celular; ?>
-                <?php echo $q_nomenegocio; ?>
-                <?php echo $q_negociocasa; ?>
-                <?php echo $q_formaatuacao; ?>
-                <?php echo $q_atividade; ?>
-                <?php echo $q_tempoatividade; ?>
-                <?php echo $q_porte; ?>
-                <?php echo $q_ramo; ?>
-                <?php echo $q_rede; ?>
-                <?php echo $q_termo; ?>
+                
               
                     
             <?php

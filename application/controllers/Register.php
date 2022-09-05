@@ -174,13 +174,7 @@ class Register extends Public_Controller
             /* CHECK BOX E RADIO */
             $this->data['simounao']  = $this->getSimNao();
             $this->data['ver']  = $this->getver();
-            $this->data['formas'] = R::findAll('formasatuacao');
-            $this->data['ativ']   = R::findAll('atividades');
-            $this->data['tempo']   = R::findAll('tempoatividade');
-            $this->data['port']   = R::findAll('porte');
-            $this->data['ram']   = R::findAll('ramo');
-       
-
+         
             $this->data['email'] = array(
                 'name'  => 'email',
                 'id'    => 'email',
@@ -259,22 +253,7 @@ class Register extends Public_Controller
                 'class' => 'form-control cep',
                 'value' => $this->form_validation->set_value('cep'),
             );
-            $this->data['cidade'] = array(
-                'name'  => 'cidade',
-                'id'    => 'cidade',
-                'type'  => 'checkbox',
-                'options'  => $this->getcidade(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('cidade'),
-            );
-            $this->data['estado'] = array(
-                'name'  => 'estado',
-                'id'    => 'estado',
-                'type'  => 'checkbox',
-                'options'  => $this->getestado(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('estado'),
-            );
+           
             $this->data['cpf'] = array(
                 'name'  => 'cpf',
                 'id'    => 'cpf',
@@ -282,13 +261,7 @@ class Register extends Public_Controller
                 'class' => 'form-control cpf',
                 'value' => $this->form_validation->set_value('cpf'),
             );
-            $this->data['cnpj'] = array(
-                'name'  => 'cnpj',
-                'id'    => 'cnpj',
-                'type'  => 'int',
-                'class' => 'form-control cnpj',
-                'value' => $this->form_validation->set_value('cnpj'),
-            );  
+          
             $this->data['celular'] = array(
                 'name'  => 'celular',
                 'id'    => 'celular',
@@ -296,141 +269,7 @@ class Register extends Public_Controller
                 'class' => 'form-control celular',
                 'value' => $this->form_validation->set_value('celular'),
             );
-            $this->data['nomenegocio'] = array(
-                'name'  => 'nomenegocio',
-                'id'    => 'nomenegocio',
-                'type'  => 'text',
-                'class' => 'form-control nomenegocio',
-                'value' => $this->form_validation->set_value('nomenegocio'),
-            );
-            $this->data['negociocasa'] = array(
-                'name'  => 'negociocasa',
-                'id'    => 'negociocasa',
-                'type'  => 'checkbox',
-                'options'  => $this->getSimNao(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('negociocasa'),
-            );
-            $this->data['formaatuacao'] = array(
-                'name'  => 'formaatuacao',
-                'id'    => 'formaatuacao',
-                'type'  => 'checkbox',
-                'options'  => $this->getformaatuacao(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('formaatuacao'),
-            );
-            $this->data['outraforma'] = array(
-                'name'  => 'outraforma',
-                'id'    => 'outraforma',
-                'type'  => 'text',
-                'class' => 'form-control outraforma',
-                'value' => $this->form_validation->set_value('outraforma'),
-            );
-            $this->data['atividade'] = array(
-                'name'  => 'atividade',
-                'id'    => 'atividade',
-                'type'  => 'checkbox',
-                'options'  => $this->getatividade(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('atividade'),
-            );
-            $this->data['outraatividade'] = array(
-                'name'  => 'outraatividade',
-                'id'    => 'outraatividade',
-                'type'  => 'text',
-                'class' => 'form-control outraatividade',
-                'value' => $this->form_validation->set_value('outraatividade'),
-            );
-            $this->data['tempoatividade'] = array(
-                'name'  => 'tempoatividade',
-                'id'    => 'tempoatividade',
-                'type'  => 'checkbox',
-                'options'  => $this->gettempoatividade(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('tempoatividade'),
-            );
-            $this->data['porte'] = array(
-                'name'  => 'porte',
-                'id'    => 'porte',
-                'type'  => 'checkbox',
-                'options'  => $this->getporte(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('porte'),
-            );
-            $this->data['outroporte'] = array(
-                'name'  => 'outroporte',
-                'id'    => 'outroporte',
-                'type'  => 'text',
-                'class' => 'form-control outroporte',
-                'value' => $this->form_validation->set_value('outroporte'),
-            );
-            $this->data['ramo'] = array(
-                'name'  => 'ramo',
-                'id'    => 'ramo',
-                'type'  => 'checkbox',
-                'options'  => $this->getramo(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('ramo'),
-            );
-            $this->data['outroramo'] = array(
-                'name'  => 'outroramo',
-                'id'    => 'outroramo',
-                'type'  => 'text',
-                'class' => 'form-control outroramo',
-                'value' => $this->form_validation->set_value('outroramo'),
-            );
-            $this->data['rede'] = array(
-                'name'  => 'rede',
-                'id'    => 'rede',
-                'type'  => 'checkbox',
-                'options'  => $this->getSimNao(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('rede'),
-            );
-            $this->data['instagram'] = array(
-                'name'  => 'instagram',
-                'id'    => 'instagram',
-                'type'  => 'text',
-                'class' => 'form-control instagram',
-                'value' => $this->form_validation->set_value('instagram'),
-            );
-            $this->data['facebook'] = array(
-                'name'  => 'facebook',
-                'id'    => 'facebook',
-                'type'  => 'text',
-                'class' => 'form-control facebook',
-                'value' => $this->form_validation->set_value('facebook'),
-            );
-            $this->data['whatsapp'] = array(
-                'name'  => 'whatsapp',
-                'id'    => 'whatsapp',
-                'type'  => 'text',
-                'class' => 'form-control whatsapp',
-                'value' => $this->form_validation->set_value('whatsapp'),
-            );
-            $this->data['site'] = array(
-                'name'  => 'site',
-                'id'    => 'site',
-                'type'  => 'text',
-                'class' => 'form-control site',
-                'value' => $this->form_validation->set_value('site'),
-            );
-            $this->data['outras'] = array(
-                'name'  => 'outras',
-                'id'    => 'outras',
-                'type'  => 'text',
-                'class' => 'form-control outras',
-                'value' => $this->form_validation->set_value('outras'),
-            );
-            $this->data['termo'] = array(
-                'name'  => 'termo',
-                'id'    => 'termo',
-                'type'  => 'checkbox',
-                'options'  => $this->getver(),
-                'class' => 'form-control termo',
-                'value' => $this->form_validation->set_value('termo'),
-            );
-
+           
             //---chama os modulos 
             $this->data['modulo_cabecalho'] = $this->load->view('public/includes/header.php', $this->cfg, TRUE);
             $this->data['modulo_rodape'] = $this->load->view('public/includes/footer.php', $this->cfg, TRUE);
@@ -443,25 +282,8 @@ class Register extends Public_Controller
             $this->data['q_nomeusuario'] = $this->load->view('public/includes/questoes/q_nomeusuario.php', $this->data, TRUE);
             $this->data['q_senha'] = $this->load->view('public/includes/questoes/q_senha.php', $this->data, TRUE);
             $this->data['q_logradouro'] = $this->load->view('public/includes/questoes/q_logradouro.php', $this->data, TRUE);
-            $this->data['q_numero'] = $this->load->view('public/includes/questoes/q_numero.php', $this->data, TRUE);
-            $this->data['q_complemento'] = $this->load->view('public/includes/questoes/q_complemento.php', $this->data, TRUE);
-            $this->data['q_bairro'] = $this->load->view('public/includes/questoes/q_bairro.php', $this->data, TRUE);
-            $this->data['q_cep'] = $this->load->view('public/includes/questoes/q_cep.php', $this->data, TRUE);
-            $this->data['q_cidade'] = $this->load->view('public/includes/questoes/q_cidade.php', $this->data, TRUE);
-            $this->data['q_estado'] = $this->load->view('public/includes/questoes/q_estado.php', $this->data, TRUE);
             $this->data['q_cpf'] = $this->load->view('public/includes/questoes/q_cpf.php', $this->data, TRUE);
-            $this->data['q_cnpj'] = $this->load->view('public/includes/questoes/q_cnpj.php', $this->data, TRUE);
-            $this->data['q_celular'] = $this->load->view('public/includes/questoes/q_celular.php', $this->data, TRUE);
-            $this->data['q_nomenegocio'] = $this->load->view('public/includes/questoes/q_nomenegocio.php', $this->data, TRUE);
-            $this->data['q_negociocasa'] = $this->load->view('public/includes/questoes/q_negociocasa.php', $this->data, TRUE);
-            $this->data['q_formaatuacao'] = $this->load->view('public/includes/questoes/q_formaatuacao.php', $this->data, TRUE);
-            $this->data['q_atividade'] = $this->load->view('public/includes/questoes/q_atividade.php', $this->data, TRUE);
-            $this->data['q_tempoatividade'] = $this->load->view('public/includes/questoes/q_tempoatividade.php', $this->data, TRUE);
-            $this->data['q_porte'] = $this->load->view('public/includes/questoes/q_porte.php', $this->data, TRUE);
-            $this->data['q_ramo'] = $this->load->view('public/includes/questoes/q_ramo.php', $this->data, TRUE);
-            $this->data['q_rede'] = $this->load->view('public/includes/questoes/q_rede.php', $this->data, TRUE);
-            $this->data['q_termo'] = $this->load->view('public/includes/questoes/q_termo.php', $this->data, TRUE);
-            
+           
 
             $this->load->view('public/register', $this->data);
         } //FIM ELSE
@@ -498,65 +320,6 @@ class Register extends Public_Controller
 
         return $ret;
     }
-
-    private function getcidade()
-    {
-        $cid = R::findAll("cidades",'estado = 23');
-        foreach ($cid as $c) {
-            $options[$c->id] = $c->nome;
-        }
-        return $options;
-    }
-    private function getestado()
-    {
-        $est = R::findAll("estados", 'id=23');
-        foreach ($est as $e) {
-            $options[$e->id] = $e->nome;
-        }
-        return $options;
-    }
-
-    private function getformaatuacao()
-    {
-        $est = R::findAll("formasatuacao");
-        foreach ($est as $e) {
-            $options[$e->id] = $e->descricao;
-        }
-        return $options;
-    }
-    private function getatividade()
-    {
-        $est = R::findAll("atividades");
-        foreach ($est as $e) {
-            $options[$e->id] = $e->descricao;
-        }
-        return $options;
-    }
-    private function gettempoatividade()
-    {
-        $est = R::findAll("tempoatividade");
-        foreach ($est as $e) {
-            $options[$e->id] = $e->descricao;
-        }
-        return $options;
-    }
-    private function getporte()
-    {
-        $est = R::findAll("porte");
-        foreach ($est as $e) {
-            $options[$e->id] = $e->descricao;
-        }
-        return $options;
-    }
-    private function getramo()
-    {
-        $est = R::findAll("ramo");
-        foreach ($est as $e) {
-            $options[$e->id] = $e->descricao;
-        }
-        return $options;
-    }
-
 
 
 }

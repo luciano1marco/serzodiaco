@@ -66,7 +66,8 @@ class pessoas extends Admin_Controller {
             $pessoa->nome = $this->input->post('nome');
             $pessoa->email = $this->input->post('email');
             $pessoa->telefone = $this->input->post('telefone');
-            
+			$pessoa->cpf = $this->input->post('cpf');
+			$pessoa->endereco = $this->input->post('endereco');
             
 			R::store($pessoa);
 
@@ -98,6 +99,20 @@ class pessoas extends Admin_Controller {
                 'type'  => 'int',
                 'class' => 'form-control',
                 'value' => $this->form_validation->set_value('telefone'),
+            );
+			$this->data['cpf'] = array(
+                'name'  => 'cpf',
+                'id'    => 'cpf',
+                'type'  => 'int',
+                'class' => 'form-control',
+                'value' => $this->form_validation->set_value('cpf'),
+            );
+			$this->data['endereco'] = array(
+                'name'  => 'endereco',
+                'id'    => 'endereco',
+                'type'  => 'text',
+                'class' => 'form-control',
+                'value' => $this->form_validation->set_value('endereco'),
             );
 
         }         
@@ -146,8 +161,9 @@ class pessoas extends Admin_Controller {
 				$pessoa->nome = $this->input->post('nome');
 				$pessoa->email = $this->input->post('email');
 				$pessoa->telefone = $this->input->post('telefone');
+				$pessoa->cpf = $this->input->post('cpf');
+				$pessoa->endereco = $this->input->post('endereco');
 				
-								
 				R::store($pessoa);
 
 				redirect('admin/pessoas/', 'refresh');
@@ -183,6 +199,20 @@ class pessoas extends Admin_Controller {
 			'type'  => 'text',
 			'class' => 'form-control',
 			'value' => $pessoa->telefone,
+		);
+		$this->data['cpf'] = array(
+			'name'  => 'cpf',
+			'id'    => 'cpf',
+			'type'  => 'text',
+			'class' => 'form-control',
+			'value' => $pessoa->cpf,
+		);
+		$this->data['endereco'] = array(
+			'name'  => 'endereco',
+			'id'    => 'endereco',
+			'type'  => 'text',
+			'class' => 'form-control',
+			'value' => $pessoa->endereco,
 		);
 
 		/* Load Template */

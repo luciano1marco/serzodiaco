@@ -85,10 +85,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         $cancel = '<i class="fa fa-times"></i> <span>Cancelar</span>';                                                  
                                         ?>
 
-                                        <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-primary btn-flat', 'content' => $submit)); ?>
-                                        <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => $redo)); ?>                                                   
+                                        <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-success btn-flat', 'content' => $submit)); ?>
                                         <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
-                                    
+                                        <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => $redo)); ?>                                                   
+                                        
                                     </div>
                                 </div>
                             </div>

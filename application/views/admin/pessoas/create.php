@@ -30,7 +30,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <?php echo form_input($nome); ?>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <?php echo form_label('CPF', 'nome', array('class' => 'col-sm-2 control-label')); ?>
+                            <div class="col-sm-6">
+                                <?php echo form_input($cpf); ?>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <?php echo form_label('Email', 'nome', array('class' => 'col-sm-2 control-label')); ?>
                             <div class="col-sm-6">
@@ -44,7 +49,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <?php echo form_input($telefone); ?>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <?php echo form_label('Endereço', 'nome', array('class' => 'col-sm-2 control-label')); ?>
+                            <div class="col-sm-6">
+                                <?php echo form_input($endereco); ?>
+                            </div>
+                        </div>
                         <?php echo form_fieldset_close(); ?>
 
                         <div class="form-group">
@@ -58,10 +68,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     $cancel = '<i class="fa fa-times"></i> <span>Cancelar</span>';
                                     ?>
 
-                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-primary btn-flat', 'content' => $submit)); ?>
-                                    <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => $redo)); ?>
+                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-success btn-flat', 'content' => $submit)); ?>
                                     <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
-
+                                    <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => $redo)); ?>
+                                    
                                 </div>
                             </div>
                         </div>
