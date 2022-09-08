@@ -181,95 +181,32 @@ body{
                     <img class="img-responsive" src="public/images/laranja.png" >
                 </a>
             </div> 
-            <!-- Objetivos -->
+            <!-- Imagens public/images/imagem1.jpg?image=8-->
          
-                   <!--teste de slider -->
-                    <input type="radio" class="slide-controller" name="slide" checked />
-                    <input type="radio" class="slide-controller" name="slide" />
-                    <input type="radio" class="slide-controller" name="slide" />
-                    <input type="radio" class="slide-controller" name="slide" />
-
-                    <div class="slide-show" >
-                    <ul class="slides-list" >
-                        <li class="slide" >
-                        <img src="public/images/banner.png?image=8" />
-                        </li>
-                        <li class="slide" >
-                        <img src="public/images/fundomeio.jpg?image=0" />
-                        </li>
-                        <li class="slide" >
-                        <img src="public/images/logo.png?image=6" />
-                        </li>
-                        <li class="slide" >
-                        <img src="public/images/triangulo.png?image=1" />
-                        </li>
-                    </ul>
-                    </div>
-
-
-
-
-                     <!-- lista laranja -->
-                     <div class="col-lg-12">
-                        <a href="#">
-                            <img class="img-responsive" src="public/images/laranja.png" >
-                         </a>
-                    </div>
-                    <!-- conheça nossas empreendedoras -->
-                    <div class="col-lg-12">
-                        <div class="col-md-3"> </div>
-                        <div class="col-md-6" id="conheca">
-                            <h3>Conheça nossoas Empreendedoras</h3><br><br>
-                        </div>
-                    </div> 
-                    <div class="col-md-12">
-                        
-                        <div class="col-md-6">
-                                <h1>Clique no vídeo para assistir!</h1><br><br>
-                        </div>
-                    </div>
-                    <!-- videos ---->
-                    <div class="col-md-12">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-3" >
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item"  src="public/images/Video-2021-03-06-at-20.31.13.mp4" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="public/images/Video-2021-03-06-at-20.31.28.mp4" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="public/images/Video-2021-03-06-at-20.31.48.mp4" allowfullscreen ></iframe>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">espaço</div>
+            <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
+            <h4>Imagens</h4>   
+            <div class="carousel-inner" id="imagens">
                     
-                    <div class="col-md-12">
-                    <div class="col-md-2"></div>
-                        <div class="col-md-3">
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="public/images/Video-2021-03-07-at-09.39.56.mp4" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="public/images/Video-2021-03-07-at-10.15.09.mp4" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="public/images/Video-2021-03-08-at-15.41.02.mp4" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                    <div class="carousel-item active">
+                    <img class="d-block w-100" src="public/images/imagem1.jpg?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
                     </div>
-
-                    <div class="col-md-12">espaço</div>
+                    <div class="carousel-item">
+                    <img class="d-block w-100" src="public/images/imagem2.jpg?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
+                    </div>
+                    <div class="carousel-item">
+                    <img class="d-block w-100" src="public/images/imagem3.jpg?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
+                    
                     <!-- triangulo virado -->
                     <div class="col-lg-12">
                         <a href="#">

@@ -20,7 +20,9 @@ class pessoas extends Admin_Controller {
         /* Breadcrumbs :: Common */
        // $this->breadcrumbs->unshift(1, 'apoiador', 'admin/apoiador');
     }
-	public function index()	{  
+	
+	public function index()	{ 
+		 
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
         {
             redirect('auth/login', 'refresh');
@@ -48,8 +50,7 @@ class pessoas extends Admin_Controller {
         }
     }
 
-    public function create()
-    {
+    public function create() {
         /* Breadcrumbs */
 		$this->breadcrumbs->unshift(2, "Nova Pessoa", 'admin/pessoas/create');
 		$this->data['breadcrumb'] = $this->breadcrumbs->show();
@@ -68,6 +69,7 @@ class pessoas extends Admin_Controller {
             $pessoa->telefone = $this->input->post('telefone');
 			$pessoa->cpf = $this->input->post('cpf');
 			$pessoa->endereco = $this->input->post('endereco');
+            $pessoa->data_nasc = $this->input->post('data_nasc');
             
 			R::store($pessoa);
 
@@ -113,6 +115,13 @@ class pessoas extends Admin_Controller {
                 'type'  => 'text',
                 'class' => 'form-control',
                 'value' => $this->form_validation->set_value('endereco'),
+            );
+			$this->data['data_nasc'] = array(
+                'name'  => 'data_nasc',
+                'id'    => 'data_nasc',
+                'type'  => 'date',
+                'class' => 'form-control',
+                'value' => $this->form_validation->set_value('data_nasc'),
             );
 
         }         
@@ -163,6 +172,7 @@ class pessoas extends Admin_Controller {
 				$pessoa->telefone = $this->input->post('telefone');
 				$pessoa->cpf = $this->input->post('cpf');
 				$pessoa->endereco = $this->input->post('endereco');
+				$pessoa->data_nasc = $this->input->post('data_nasc');
 				
 				R::store($pessoa);
 
@@ -213,6 +223,13 @@ class pessoas extends Admin_Controller {
 			'type'  => 'text',
 			'class' => 'form-control',
 			'value' => $pessoa->endereco,
+		);
+		$this->data['data_nasc'] = array(
+			'name'  => 'data_nasc',
+			'id'    => 'data_nasc',
+			'type'  => 'date',
+			'class' => 'form-control',
+			'value' => $pessoa->data_nasc,
 		);
 
 		/* Load Template */

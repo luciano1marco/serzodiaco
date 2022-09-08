@@ -39,6 +39,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 									<th>Email</th>
 									<th>Telefone</th>
 									<th>Endereço</th>
+									<th>Data Nasc.</th>
 									<th>Ação</th>
 								</tr>
 							</thead>
@@ -53,6 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 										<td><?php echo htmlspecialchars($apa['email'], ENT_QUOTES, 'UTF-8'); ?></td>
 										<td><?php echo htmlspecialchars($apa['telefone'], ENT_QUOTES, 'UTF-8'); ?></td>
 										<td><?php echo htmlspecialchars($apa['endereco'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<td><?php echo htmlspecialchars($apa['data_nasc'], ENT_QUOTES, 'UTF-8'); ?></td>
 										
 										<!-- Opções -->
 										<td>

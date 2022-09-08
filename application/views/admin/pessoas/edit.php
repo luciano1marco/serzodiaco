@@ -57,6 +57,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <?php echo form_input($endereco); ?>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <?php echo form_label('Data de Nascimento', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
+                            <div class="col-sm-6">
+                            <?php echo form_input($data_nasc); ?>
+                            </div>
+                        </div>
                         <?php echo form_fieldset_close(); ?>
                         
                         <div class="form-group">

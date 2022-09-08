@@ -38,7 +38,7 @@
                                 <?php echo form_input($password); ?>
                                 
                                 </div><br>
-                            <?php $cancel = '<i class="fa fa-times"></i> <span>Cancelar</span>'; ?>                                                 
+                            <?php $cancel = '<i class="fa fa-times"></i> <span>Voltar</span>'; ?>                                                 
                             <?php $anchor = 'home'?> 
                             <?php $ancho = 'register'?>               
                             <!-- botões do login-->
@@ -48,7 +48,7 @@
                                 </div>
                                
                                 <div class="col-xs-4"><br>
-                                    <?php echo form_submit('submit', 'Entrar', array('class' => 'btn btn-danger btn-block btn-flat', 'id' =>'bt'));?>
+                                    <?php echo form_submit('submit', 'Entrar', array('class' => 'btn btn-success btn-block btn-flat', 'id' =>'bt'));?>
                                 </div>
                             </div><br><br>
                              <!--- fim botões---->    

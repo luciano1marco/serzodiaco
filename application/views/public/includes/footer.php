@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<!--teste de footer--->    
+<!--teste de footer-- #350B31--->    
 <style>
 #myFooter {
     background-color: #350B31;
@@ -23,21 +23,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     list-style-type: none;
     padding-left: 0;
     line-height: 1.7;
-}
-
-#myFooter h5 {
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-    margin-top: 30px;
-}
-
-#myFooter h2 {
-    font-size: 35px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 30px;
-    color: #fff;
 }
 
 #myFooter a {
@@ -96,7 +81,9 @@ body{
    flex: 0 0 auto;
    -webkit-flex: 0 0 auto;
 }
-
+#direito{
+    margin-top: 300;
+}
 div.topo {
     background:#AB2BA5;
     position: fixed;
@@ -107,30 +94,27 @@ div.topo {
 </style> 
    <footer id="myFooter">
        <div class="row"> </div>
-        <div class="container">
+        <div class="content-fluid">
             <div class="col-sm-3">
                 <a href="#">
-                    <img class="img-responsive" src="http://localhost/riograndeporelas/public/images/RMEDRG.png" >
+                    <img class="img-responsive" src="http://localhost/serzodiaco/public/images/logo-rodape.png" >
                 </a>
             </div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-2">
-                <h2><p>Realização </p></h2>
-                <div class="row text-center">
-                    <h2></h2>
-                
-                    <a href="#">
-                        <img class="img-responsive" src="http://localhost/riograndeporelas/public/images/brasao.png" alt="100%" style="width:100%">
-                    </a>
-                </div>
+            <div class="col-sm-4" id="direito">Todos direitos reseverdos ₢2022@serzodiaco  </div>
+            
+            <div class="col-md-3" id="sociais">
+                        <span><h4>
+                            <ul class="list-inline">
+                                <li><a target="_blank" href="http://www.facebook.com/ser.zodiaco"                       class="facebook"> <i class="fa fa-facebook" > </i></a></li>
+                                <li><a target="_blank" href="http://twitter.com/"                            class="twitter">  <i class="fa fa-twitter" >  </i></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/"          class="instagram"><i class="fa fa-instagram"> </i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/"  class="youtube">  <i class="fa fa-youtube" >  </i></a></li>
+                            </ul>
+                        </h4></span>
+                    </div>
             </div>
-            <div class="col-sm-2"> </div>
-            <div class="col-sm-3">
-                <a href="#">
-                    <img class="img-responsive" src="http://localhost/riograndeporelas/public/images/Sala.png" >
-                </a>
-            </div>      
-        </div>
+       
         <div class="topo">
             <a href="#topo"><i class="fa fa-angle-up" > </i></a>
         </div>

@@ -12,44 +12,41 @@
  <!--- script para o menu  -->           
  <style>
 #Mymenu{
-    background-color: #ebebeb;
+    background-image: linear-gradient(to left, #E67817, #b5560380);
     position: relative;
     margin-top: 0 !important;
 }
 #Mymenu h2{
-    font-size: 40px;
+    font-size: 60px;
+    font-weight: bold;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
     color: #000;
 }
 #Mymenu h4{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     margin-top: 5px;
     color: #000;
 }
 #botoes{
-    margin-top: 40 !important;
+    margin-top: 80 !important;
     text-decoration: none;
  }
 #botoes :hover{
     color: #e67817;
+    
 }
-
 #sociais{
-    margin-top: 30 !important;  
+    margin-top: 200 !important;  
 }
-
-
 #Mymenu p{
     text-align: center;
  }
 #Mymenu a{
-    color:#000
+    color:#000;
 }
-
-
 </style>  
 
 <div id="Mymenu">  
@@ -61,12 +58,12 @@
                             <img class="img-responsive" src="public/images/logo.png" >
                         </a>
                     </div>
-                    <div class="col-md-3" >
+                    <div class="col-md-4" >
                         <h2>S.E.R.Zodíaco</h2>
                         <h4> Sociedade Esportiva e Recreativa Zodíaco</h4>
                     </div>
                     
-                    <div class="col-md-5" >
+                    <div class="col-md-4" >
                         <div class="row" id="botoes">
                             <div class="dropdown">
                                 <button type="button" class="btn btn-outline-light"> 
@@ -79,8 +76,6 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#oquee">História</a>
-                                    <a class="dropdown-item" href="#atuacao">Atuação</a>
-                                    <a class="dropdown-item" href="#objetivos">Objetivos</a>
                                     <a class="dropdown-item" href="#apoiadores">Apoiadores</a>
                                 </div>
                             </div>
@@ -96,12 +91,12 @@
                             </div> 
                             <div class="dropdown">
                                 <button type="button" class="btn btn-outline-light">
-                                    <a href="/serzodiaco/register">Associe-se</a>    
+                                    <a href="/serzodiaco/register">Socio</a>    
                                 </button>
                             </div>
                             <div class="dropdown">
                                 <button type="button" class="btn btn-outline-light">
-                                    <a href="/serzodiaco/auth/login">Acessar</a>
+                                    <a href="/serzodiaco/auth/login">Login</a>
                                 </button>
                             </div>              
                         </div>  
