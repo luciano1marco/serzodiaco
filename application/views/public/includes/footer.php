@@ -48,6 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     line-height: 25px;
 }
+#myFooter .span{
+    margin-top: 50;
+}
 
 @media screen and (max-width: 767px) {
     #myFooter {
@@ -85,11 +88,50 @@ body{
     margin-top: 300;
 }
 div.topo {
-    background:#AB2BA5;
+    background:#FB924B;
     position: fixed;
     bottom: 25px;
     right: 25px;
     /*tentar usar z-index para aparecer apartir da segunda pagina*/
+}
+#myFooter h3 {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+    color: #992691;
+}
+#myFooter h4 {
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 30px;
+    color: #FB893B;
+}
+#myFooter h5 {
+    
+    font-size: 17px;
+    text-align: left;
+    margin-top: 30px;
+    color: #FFFFFF;
+}
+span{
+    background-color:#350B31;
+    color:#FFFFFF;
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 }
 </style> 
    <footer id="myFooter">
@@ -100,8 +142,21 @@ div.topo {
                     <img class="img-responsive" src="http://localhost/serzodiaco/public/images/logo-rodape.png" >
                 </a>
             </div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-4" id="direito">Todos direitos reseverdos ₢2022@serzodiaco  </div>
+            <div class="col-sm-6">
+                <h4>Sociedade Esportiva e Recreativa Zodíaco</h4>
+                <div class="col-sm-6">
+                    <h5>Endereço: Rua Apelles Porto Alegre, 60 </h5>
+                    <h5> Rio Grande - RS, 96200-060</h5>
+                    <h5>Telefone: (53)56445654</h5>   
+                </div>
+                <div class="col-sm-6">
+                    <h5>Localização - Nossa Sede</h5>
+                    <div class="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d355.4934941374832!2d-52.09606976630629!3d-32.04102370408533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95119d224048b60f%3A0x617e1cd44c5cc3cb!2sSociedade%20Esportiva%20e%20Recreativa%20Zod%C3%ADaco!5e0!3m2!1spt-BR!2sbr!4v1662991481658!5m2!1spt-BR!2sbr" width="360" height="170" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>        
+            </div>
+            
             
             <div class="col-md-3" id="sociais">
                         <span><h4>
@@ -114,11 +169,13 @@ div.topo {
                         </h4></span>
                     </div>
             </div>
-       
+           
         <div class="topo">
             <a href="#topo"><i class="fa fa-angle-up" > </i></a>
         </div>
+        
     </footer>
+    <span> Todos direitos reseverdos ₢2022@serzodiaco </span> 
              
     
     <!-- END -->

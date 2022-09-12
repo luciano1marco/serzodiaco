@@ -181,40 +181,91 @@ body{
                     <img class="img-responsive" src="public/images/laranja.png" >
                 </a>
             </div> 
-            <!-- Imagens public/images/imagem1.jpg?image=8-->
-         
-            <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
-            <h4>Imagens</h4>   
-            <div class="carousel-inner" id="imagens">
-                    
-                    <div class="carousel-item active">
-                    <img class="d-block w-100" src="public/images/imagem1.jpg?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
-                    </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src="public/images/imagem2.jpg?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
-                    </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src="public/images/imagem3.jpg?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
+            
+            <div class="col-md-12" ><h3>Galeria de Fotos</h3></div>
+            <!-- imagens  --->
+            <div class="col-md-12" id="imagens">
+                <div class="col-md-4">
+                    <h5>Escolinha</h5>
+                    <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
+                        <div class="carousel-inner" >
+                            <div class="carousel-item active">
+                            <img class="d-block w-100" src="public/images/imagem1.jpg?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem2.jpg?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem3.jpg?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Próximo</span>
-                </a>
+                <div class="col-md-4">
+                    <h5>Conquistas</h5>
+                    <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
+                        <div class="carousel-inner" >
+                            <div class="carousel-item active">
+                            <img class="d-block w-100" src="public/images/imagem1.jpg?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem2.jpg?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem3.jpg?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Eventos</h5>
+                    <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
+                        <div class="carousel-inner" >
+                            <div class="carousel-item active">
+                            <img class="d-block w-100" src="public/images/imagem1.jpg?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem2.jpg?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem3.jpg?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-                    
-                    <!-- triangulo virado -->
-                    <div class="col-lg-12">
-                        <a href="#">
-                            <img class="img-responsive" src="public/images/triangulovirado.png" >
-                         </a>
-                    </div> 
+            <!-- triangulo virado -->
+            <div class="col-lg-12">
+                <a href="#">
+                    <img class="img-responsive" src="public/images/triangulovirado.png" >
+                    </a>
+            </div> 
 
-                    <!-- apoiadores -->
+            <!-- apoiadores -->
 
                     
 

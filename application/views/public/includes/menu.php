@@ -12,7 +12,7 @@
  <!--- script para o menu  -->           
  <style>
 #Mymenu{
-    background-image: linear-gradient(to left, #E67817, #b5560380);
+    background-image: linear-gradient(to left, #C0574C, #E67817 );
     position: relative;
     margin-top: 0 !important;
 }

@@ -113,16 +113,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 #figuras {
     padding: 100;
 }
-
+#figuras h4{
+    font-weight: bold;
+    font-size: 26px;
+    font-family: "Poppins", Sans-serif;
+    letter-spacing: 1px;
+    line-height: 42px;
+    text-align: center;
+    color: #000; 
+}
 
 /* ---fim css faleconosco ---*/
 </style>
 
-
 <div class="bg">
     <div class="jumbotron">
-    
-           
     </div>
 </div>    
   
@@ -136,48 +141,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <div id="figuras">
                     <div class="col-lg-12">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
+                            <h4>Diretoria Atual</h4>
+                        </div>
+                        <div class="col-md-4">
                             <a href="#">
                                 <img class="img-responsive" src="public/images/sebrae.jpeg"  width="300" height="200" >
                             </a>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <a href="#">
                                 <img class="img-responsive" src="public/images/telerig.jpg"  width="300" height="200">
                             </a>
                         </div>
-               
                     </div>
                 </div> 
             </div>   
         </div>
 </div>
 
-
 <div id="fale">
     <section class="content-fluid">
-    <main role="main">
-       
+        <main role="main">
             <div class="row ">
                 <div class="col-lg-12">
                     <h3>Fale com a gente</h3><br>
-                    <h5> Queremos ajudar você a conquistar seus objetivos</h5>
+                    <h5> ou passe na nossa sede social para conhecer.</h5>
                 </div>
-                
-                
-                <div class="row"></div>
-                
-                
                 <div class="col-lg-12">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-8" >
-                      
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-9" >
                         <div class="container">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-6 col-lg-offset-1 col-xs-12">
-                                        <label >Seu nome</label>
+                                        <label >Nome</label>
                                             <input type="text" name="nome" class="form-control" placeholder="Digite seu nome" size="12" required="">
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-6 col-lg-offset-1 col-xs-12">
-                                        <label >Seu email</label><input type="text" name="titulo" size="48" class="form-control" placeholder="Digite seu email" required="">
+                                        <label >Email</label><input type="text" name="titulo" size="48" class="form-control" placeholder="Digite seu email" required="">
                                     </div>
                                 </div>
                             </div>
@@ -197,36 +197,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-
-                        <div class="container">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-6 col-lg-offset-1 col-xs-12">
                                         <br>
-                                        <label>Sua Mensagem</label> 
-                                        <textarea name="mensagem" id="input" class="form-control" rows="12" cols="63" placeholder="Deixe sua Mensagem" required="required" ></textarea>
-
+                                        <label>Mensagem</label> 
+                                        <textarea name="mensagem" id="input" class="form-control" rows="5" cols="13" placeholder="Deixe sua Mensagem" required="required" ></textarea>
                                         <div id="botao" >
                                             <br>
                                             <button type="submit" id="bt"> Enviar</button>
-                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
-                       
                     </div>
                 </div>
-                
             </div>
-            
-               
-              
-           
-    </main>       
+        </main>       
     </section>    
 </div>

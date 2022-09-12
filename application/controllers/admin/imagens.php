@@ -40,70 +40,28 @@ class imagens extends Admin_Controller {
 			/* Data */
 			$this->data['error'] = NULL;
 
-			//$this->data['aparelhos'] = R::findAll('aparelhos');
-
-
+			$this->data['descricao'] = array(
+                'name'  => 'descricao',
+                'id'    => 'descricao',
+                'type'  => 'text',
+                'class' => 'form-control',
+                'value' => $this->form_validation->set_value('descricao'),
+            );
+            
+            $this->data['tipo'] = array(
+                'name'  => 'tipo',
+                'id'    => 'tipo',
+                'type'  => 'checkbox',
+				'options'  => $this->getTipos(),
+                'class' => 'form-control',
+                'value' => $this->form_validation->set_value('tipo'),
+            );
+			
 			/* Load Template */
 			$this->template->admin_render($this->anchor . '/index', $this->data);
         }
     }
 	
-    public function create() {
-        /* Breadcrumbs */
-		$this->breadcrumbs->unshift(2, "Nova Imagem", 'admin/imagens/create');
-		$this->data['breadcrumb'] = $this->breadcrumbs->show();
-		$this->data['texto_create'] = 'Adicionar Imagem';
-		/* Variables */
-		$tables = $this->config->item('tables', 'ion_auth');
-
-		/* Validate form input */
-		$this->form_validation->set_rules('nome', 'nome', 'required');
-                
-        /* cria a tabela com seus campos */
-		if ($this->form_validation->run()) {
-			$imagem = R::dispense("imagens");
-            $imagem->nome = $this->input->post('nome');
-            $imagem->caminho = $this->input->post('caminho');
-            $imagem->tipo = $this->input->post('tipo');
-			
-			R::store($imagem);
-
-			$this->session->set_flashdata('message', "Dados gravados");
-            redirect('admin/imagens', 'refresh');
-		} 
-        else {
-            $this->data['message'] = (validation_errors() ? validation_errors() : "");
-
-            $this->data['nome'] = array(
-                'name'  => 'nome',
-                'id'    => 'nome',
-                'type'  => 'text',
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('nome'),
-            );
-            
-            $this->data['caminho'] = array(
-                'name'  => 'caminho',
-                'id'    => 'caminho',
-                'type'  => 'text',
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('caminho'),
-            );
-
-            $this->data['tipo'] = array(
-                'name'  => 'tipo',
-                'id'    => 'tipo',
-                'type'  => 'int',
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('tipo'),
-            );
-			
-
-        }         
-        /* Load Template */
-        $this->template->admin_render('admin/imagens/create', $this->data);
-    }
-    
     public function deleteyes($id) {
 		if ( ! $this->ion_auth->logged_in() ) {
 			return show_error('voce não esta logado');
@@ -145,6 +103,7 @@ class imagens extends Admin_Controller {
 				$imagem->nome = $this->input->post('nome');
 				$imagem->caminho = $this->input->post('caminho');
 				$imagem->tipo = $this->input->post('tipo');
+				$imagem->descricao = $this->input->post('descricao');
 				
 				R::store($imagem);
 
@@ -182,88 +141,61 @@ class imagens extends Admin_Controller {
 			'class' => 'form-control',
 			'value' => $imagem->tipo,
 		);
+		$this->data['descricao'] = array(
+			'name'  => 'descricao',
+			'id'    => 'descricao',
+			'type'  => 'text',
+			'class' => 'form-control',
+			'value' => $imagem->descricao,
+		);
 		/* Load Template */
 		$this->template->admin_render('admin/imagens/edit', $this->data);
 	}
 
-//------Uploads
-public function uploadarquivos($projeto) {
-	$p = R::load("imagens", $projeto);
+	//------Uploads
+	public function uploadarquivos() {
+		$nomesarquivos = $_FILES['arquivos']['name'];
+				
+		for ($i=0; $i<count($nomesarquivos); $i++) {
+			$_FILES['arquivo']['name'] = $_FILES['arquivos']['name'][$i];
+			$_FILES['arquivo']['type'] = $_FILES['arquivos']['type'][$i];
+			$_FILES['arquivo']['tmp_name'] = $_FILES['arquivos']['tmp_name'][$i];
+			$_FILES['arquivo']['error'] = $_FILES['arquivos']['error'][$i];
+			$_FILES['arquivo']['size'] = $_FILES['arquivos']['size'][$i];
 
-	if (!$this->usuarios_model->isAdmin($this->session->user_id) 
-		&& $p->responsavel != $this->session->user_id) {
-		redirect('admin');
-	}
+			if (!is_dir("upload/ser-")) {                                 
+				mkdir("upload/ser-");
+			}                        
+			$config['upload_path'] = "upload/ser";
+			$config['allowed_types'] = '*';
+			$config['max_size'] = 10240;
+			$config['file_name'] = $_FILES['arquivos']['name'][$i];
 
-	$nomesarquivos = $_FILES['arquivos']['name'];
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
 
-	for ($i=0; $i<count($nomesarquivos); $i++) {
-		$_FILES['arquivo']['name'] = $_FILES['arquivos']['name'][$i];
-		$_FILES['arquivo']['type'] = $_FILES['arquivos']['type'][$i];
-		$_FILES['arquivo']['tmp_name'] = $_FILES['arquivos']['tmp_name'][$i];
-		$_FILES['arquivo']['error'] = $_FILES['arquivos']['error'][$i];
-		$_FILES['arquivo']['size'] = $_FILES['arquivos']['size'][$i];
-
-		if (!is_dir("upload/ser-".$projeto)) {
-			mkdir("upload/ser-".$projeto);
+			if ($this->upload->do_upload("arquivo")) {
+				$datafile = $this->upload->data();
+				
+				$dadosImg = R::dispense("imagens");
+				$dadosImg->nome = time();
+				$dadosImg->caminho = $datafile["full_path"];
+				$dadosImg->descricao = $this->input->post('descricao');
+				$dadosImg->tipo = $this->input->post('tipo');
+			
+				R::store($dadosImg);
+			}
 		}
-		$config['upload_path'] = "upload/ser-".$projeto;
-		$config['allowed_types'] = '*';
-		$config['max_size'] = 10240;
-		$config['file_name'] = $_FILES['arquivos']['name'][$i];
 
-		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
-
-		if ($this->upload->do_upload("arquivo")) {
-			$datafile = $this->upload->data();
-			
-			$ap = R::dispense("imagens");
-			$ap->projeto = $projeto;
-			$ap->nome = $datafile["file_name"];
-			$ap->caminho = $datafile["full_path"];
-			$ap->tipo = $this->input->post('tipo');
-			
-			R::store($ap);
+		redirect('admin/imagens/' , 'refresh');
+	}  
+	
+	public function getTipos() {
+		$tipo = R::findAll("tipos");
+		foreach ($tipo as $e) {
+			$options[$e->id] = $e->descricao;
 		}
-	}
-
-	redirect('admin/imagens/' . $projeto, 'refresh');
-}
-public function uploadarquivosetapa($id) {
-	$nomesarquivos = $_FILES['arquivos']['name'];
-			
-	for ($i=0; $i<count($nomesarquivos); $i++) {
-		$_FILES['arquivo']['name'] = $_FILES['arquivos']['name'][$i];
-		$_FILES['arquivo']['type'] = $_FILES['arquivos']['type'][$i];
-		$_FILES['arquivo']['tmp_name'] = $_FILES['arquivos']['tmp_name'][$i];
-		$_FILES['arquivo']['error'] = $_FILES['arquivos']['error'][$i];
-		$_FILES['arquivo']['size'] = $_FILES['arquivos']['size'][$i];
-
-		if (!is_dir("upload/ser-".$id)) {                                 
-			mkdir("upload/ser-".$id);
-		}                        
-		$config['upload_path'] = "upload/ser-".$id;
-		$config['allowed_types'] = '*';
-		$config['max_size'] = 10240;
-		$config['file_name'] = $_FILES['arquivos']['name'][$i];
-
-		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
-
-		if ($this->upload->do_upload("arquivo")) {
-			$datafile = $this->upload->data();
-			
-			$ae = R::dispense("imagens");
-			$ae->etapa = $id;
-			$ae->nome = $datafile["file_name"];
-			$ae->caminho = $datafile["full_path"];
-			$ae->tipo = $this->input->post('tipo');
-			R::store($ae);
-		}
-	}
-
-	redirect('admin/imagens/create/' . $id, 'refresh');
-}       
+		return $options;
+    }
 
 }

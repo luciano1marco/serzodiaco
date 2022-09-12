@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 ?>
 
 <div class="content-wrapper">
@@ -17,53 +16,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="box-header with-border">
                         <h3 class="box-title"><?php echo  $texto_create; ?></h3>
                     </div>
-                    <div class="content-fluid">
+                    <div class="content">
                         <?php echo $message; ?>
-                        <?php echo form_open(current_url(), array('class' => 'form-horizontal', 'id' => 'form-create_user')); ?>
-                        <?php echo form_fieldset('Dados'); ?>
-
-                        <div class="form-group">
-                            <?php echo form_label('Nome', 'nome', array('class' => 'col-sm-2 control-label')); ?>
-                            <div class="col-sm-3">
-                                <?php echo form_input($nome); ?>
+                            <?php echo form_open(current_url(), array('class' => 'form-horizontal', 'id' => 'form-create_user')); ?>
+                            <?php echo form_fieldset('Dados'); ?>
+                        <div class="form-group">  
+                            <?php echo form_label('', 'arquivo', array('class' => 'col-sm-2 control-label')); ?>  
+                            <div class="col-sm-4"> 
+                            <!--<input type="file" name="arquivo[]" multiple /> -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagem">
+                                Anexar Arquivo
+                            </button>   
                             </div>
                         </div>
-                        <div class="form-group">
-                            <?php echo form_label('Tipo', 'nome', array('class' => 'col-sm-2 control-label')); ?>
-                            <div class="col-sm-3">
-                                <?php echo form_input($tipo); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">    
-                            <div class="col-sm-3"> 
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagem">
-                                    Anexar Arquivo
-                                </button>
-                            </div>
-                        </div>
-                   
-                    </div>                        <?php echo form_fieldset_close(); ?>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <div class="btn-group">
-                                    <?php
-                                    $submit = '<i class="fa fa-check"></i> <span>Enviar</span>';
-                                    $edit = '<i class="fa fa-edit"></i> <span>Editar</span>';
-                                    $redo = '<i class="fa fa-refresh"></i> <span>Reiniciar</span>';
-                                    $delete = '<i class="fa fa-trash"></i> <span>Excluir</span>';
-                                    $cancel = '<i class="fa fa-times"></i> <span>Cancelar</span>';
-                                    ?>
-
-                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-success btn-flat', 'content' => $submit)); ?>
-                                    <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
-                                    <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => $redo)); ?>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                            <?php echo form_fieldset_close(); ?>
+                       
                         <?php echo form_close(); ?>
                     </div>
+                </div>
             </div>
         </div>
     </section>
@@ -71,9 +41,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <!-- modal anexar arquivoetapa -->
     <div class="modal" id="modalImagem">
-        <form enctype="multipart/form-data" id="arquivosetapa" method="post" action="<?= base_url("admin/imagens/uploadarquivosetapa".$etapa->id) ?>">
+        <form enctype="multipart/form-data" id="arquivosetapa" method="post" action="<?= base_url("admin/imagens/uploadarquivos") ?>">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                    <div class="modal-header">
+                        <?php echo form_label('Descrição', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
+                        <div class="col-sm-4">
+                            <?php echo form_input($descricao); ?>
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <?php echo form_label('Tipo', 'tipo', array('class' => 'col-sm-2 control-label')); ?>
+                        <div class="col-sm-4">
+                            <?php echo form_input($tipo); ?>
+                        </div>
+                    </div>
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"  ><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Anexo de arquivos</h4>
