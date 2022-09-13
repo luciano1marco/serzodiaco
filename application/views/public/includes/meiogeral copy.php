@@ -1,8 +1,11 @@
 <style>
+
 #meiogeral {
     background-color: #E9E9E9;
     color: white;
+
 }
+
 #meiogeral h1{
     font-weight: bold;
     font-size: 26px;
@@ -31,6 +34,7 @@
     margin-top: 5px;
     color: #FF6600;
 }
+
 #meiogeral h5{
     font-size: 20px;
     text-align: center;
@@ -72,6 +76,30 @@
 }
 body{
   text-align: center;
+}
+.slide-controller:nth-child(1):checked ~ .slide-show .slides-list{--selected-item: 0;}
+.slide-controller:nth-child(2):checked ~ .slide-show .slides-list{--selected-item: 1;}
+.slide-controller:nth-child(3):checked ~ .slide-show .slides-list{--selected-item: 2;}
+.slide-controller:nth-child(4):checked ~ .slide-show .slides-list{--selected-item: 3;}
+
+.slide-show{
+  overflow: hidden;
+}
+
+.slides-list{
+  --selected-item: 0;
+  --total-items: 4;
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 0;
+  position: relative;
+  left: calc(var(--selected-item) * -100%);
+  width: calc(var(--total-items) * 100%);
+  transition: left 0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
 }
 </style>
 
@@ -150,110 +178,85 @@ body{
             <!-- lista laranja -->
             <div class="col-lg-12">
                 <a href="#">
-                    <img class="img-responsive" src="public/images/laranja.png">
+                    <img class="img-responsive" src="public/images/laranja.png" >
                 </a>
             </div> 
             
             <div class="col-md-12" ><h3>Galeria de Fotos</h3></div>
             <!-- imagens  --->
-            <div class="col-md-12">
-                 <!-----carrocel primeiro quadro  id=1------------------------------------------------------------->
+            <div class="col-md-12" id="imagens">
                 <div class="col-md-4">
                     <h5>Escolinha</h5>
-                    <div id="quadro1" class="carousel slide " data-ride="carousel" >	
+                    <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
                         <div class="carousel-inner" >
-                            <?php $count = 0; 
-                                $indicators = ''; 
-                                foreach ($imagem as $row): 
-                                    $count++; 
-                                    if ($count === 1)    { $class = 'active'; } 
-                                    else                 { $class = '';       }?> 
-                                    <?php  if($row->tipo == 1):
-                                        $indicators .= '<li data-target="#quadro1" data-slide-to="' . $count . '" class="' . $class . '"></li>' ;?><br> 
-                                        <div class="item <?php echo $class; ?>"> 
-                                            <img src="<?= base_url().'upload/ser/'.$row->nome?>" width="100%"  alt="Menu"> 
-                                        </div>
-                                    <?php endif;?>
-                                <?php endforeach;?> 
-                                <ol class="carousel-indicators"> 
-                                    <?= $indicators; ?> 
-                                </ol>
+                            <div class="carousel-item active">
+                            <img class="d-block w-100" src="public/images/imagem1.jpg?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem2.jpg?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem3.jpg?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
+                            </div>
                         </div>
-                        <a class="carousel-control-prev" href="#quadro1" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
                         </a>
-                        <a class="carousel-control-next" href="#quadro1" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Próximo</span>
                         </a>
                     </div>
-                </div>  
-                <!-----carrocel segundo quadro  id=2------------------------------------------------------------->
+                </div>
                 <div class="col-md-4">
                     <h5>Conquistas</h5>
-                    <div id="quadro2" class="carousel slide " data-ride="carousel" >	
+                    <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
                         <div class="carousel-inner" >
-                            <?php $count2 = 0; 
-                                $indicators2 = ''; 
-                                foreach ($imagem as $row2): 
-                                    $count2++; 
-                                    if ($count2 === 1)    { $class2 = 'active'; } 
-                                    else                  { $class2 = '';       }?> 
-                                    <?php  if($row2->tipo == 2):
-                                        $indicators2 .= '<li data-target="#quadro2" data-slide-to="'.$count2.'" class="' . $class2 . '"></li>' ;?><br> 
-                                        <div class="item <?php echo $class2; ?>"> 
-                                            <img src="<?= base_url().'upload/ser/'.$row2->nome?>" width="100%" alt="Menu"> 
-                                        </div>
-                                    <?php endif;?>
-                                <?php endforeach;?> 
-                                <ol class="carousel-indicators"> 
-                                    <?= $indicators2; ?> 
-                                </ol>
+                            <div class="carousel-item active">
+                            <img class="d-block w-100" src="public/images/imagem1.jpg?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem2.jpg?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem3.jpg?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
+                            </div>
                         </div>
-                        <a class="carousel-control-prev" href="#quadro2" role="button" data-slide="next">
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
                         </a>
-                        <a class="carousel-control-next" href="#quadro2" role="button" data-slide="prev">
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Próximo</span>
                         </a>
                     </div>
                 </div>
-                <!-----carrocel terceiro quadro  id=3------------------------------------------------------------->
                 <div class="col-md-4">
                     <h5>Eventos</h5>
-                    <div id="quadro3" class="carousel slide " data-ride="carousel" >	
+                    <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
                         <div class="carousel-inner" >
-                            <?php $count3 = 0; 
-                                $indicators3 = ''; 
-                                foreach ($imagem as $row3): 
-                                    $count3++; 
-                                    if ($count3 === 1)    { $class3 = 'active'; } 
-                                    else                  { $class3 = '';       }?> 
-                                    <?php  if($row3->tipo == 3):
-                                        $indicators3 .= '<li data-target="#quadro3" data-slide-to="' . $count3 . '" class="' . $class3 . '"></li>' ;?><br> 
-                                        <div class="item <?php echo $class3; ?>"> 
-                                            <img src="<?= base_url().'upload/ser/'.$row3->nome?>" width="100%" height="100%" alt="Menu"> 
-                                        </div>
-                                    <?php endif;?>
-                                <?php endforeach;?> 
-                                <ol class="carousel-indicators"> 
-                                    <?= $indicators3; ?> 
-                                </ol>
+                            <div class="carousel-item active">
+                            <img class="d-block w-100" src="public/images/imagem1.jpg?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem2.jpg?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="d-block w-100" src="public/images/imagem3.jpg?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
+                            </div>
                         </div>
-                        <a class="carousel-control-prev" href="#quadro3" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
                         </a>
-                        <a class="carousel-control-next" href="#quadro3" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Próximo</span>
                         </a>
                     </div>
                 </div>
-                <!------fim carrocel----------->
             </div>
             <!-- triangulo virado -->
             <div class="col-lg-12">
@@ -269,4 +272,3 @@ body{
          </div>   
     </section>
 </div>
-

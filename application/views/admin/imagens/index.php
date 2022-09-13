@@ -25,6 +25,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						Adicionar Imagem     
 					</button> 
 					</div>
+
+					<?php $delete = '<i class="fa fa-trash"></i> <span>Excluir</span>';?>
+
 					<div class="box-body">
 						<table class="table table-striped table-hover datatable">
 							<thead>
@@ -45,7 +48,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 										
 										<!-- Opções -->
 										<td>
-											<?php echo anchor($anchor . '/edit/' . $ima['id'], "<button class=\"btn btn-danger\"><i class=\"fa fa-pencil\"></i> Editar</button>"); ?>
+											<?php echo anchor($anchor.'/apagararquivo/'.$ima['id'], $delete, array('class' => 'btn btn-danger')); ?> 
 										</td>
 									</tr>
 								<?php endforeach; ?>

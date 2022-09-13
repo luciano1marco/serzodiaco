@@ -18,7 +18,6 @@ class imagens extends Admin_Controller {
         /* Breadcrumbs :: Common */
        // $this->breadcrumbs->unshift(1, 'apoiador', 'admin/apoiador');
     }
-	
 	public function index()	{ 
 		 
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
@@ -61,7 +60,6 @@ class imagens extends Admin_Controller {
 			$this->template->admin_render($this->anchor . '/index', $this->data);
         }
     }
-	
     public function deleteyes($id) {
 		if ( ! $this->ion_auth->logged_in() ) {
 			return show_error('voce não esta logado');
@@ -80,7 +78,15 @@ class imagens extends Admin_Controller {
 		}
 		redirect('admin/imagens', 'refresh');
 	}
+	public function apagararquivo($id) {
+	
+		$ae = R::load("imagens", $id);
+		//$etapa = R::load("etapas", $ae->etapa);//para fazer o refresh
 
+		R::trash($ae);
+
+		redirect('admin/imagens/', 'refresh');
+	}
     public function edit($id) {
 		$id = (int) $id;
 
@@ -151,7 +157,6 @@ class imagens extends Admin_Controller {
 		/* Load Template */
 		$this->template->admin_render('admin/imagens/edit', $this->data);
 	}
-
 	//------Uploads
 	public function uploadarquivos() {
 		$nomesarquivos = $_FILES['arquivos']['name'];
@@ -163,8 +168,8 @@ class imagens extends Admin_Controller {
 			$_FILES['arquivo']['error'] = $_FILES['arquivos']['error'][$i];
 			$_FILES['arquivo']['size'] = $_FILES['arquivos']['size'][$i];
 
-			if (!is_dir("upload/ser-")) {                                 
-				mkdir("upload/ser-");
+			if (!is_dir("upload/ser")) {                                 
+				mkdir("upload/ser");
 			}                        
 			$config['upload_path'] = "upload/ser";
 			$config['allowed_types'] = '*';
@@ -178,7 +183,7 @@ class imagens extends Admin_Controller {
 				$datafile = $this->upload->data();
 				
 				$dadosImg = R::dispense("imagens");
-				$dadosImg->nome = time();
+				$dadosImg->nome = $datafile["file_name"];
 				$dadosImg->caminho = $datafile["full_path"];
 				$dadosImg->descricao = $this->input->post('descricao');
 				$dadosImg->tipo = $this->input->post('tipo');
@@ -189,7 +194,6 @@ class imagens extends Admin_Controller {
 
 		redirect('admin/imagens/' , 'refresh');
 	}  
-	
 	public function getTipos() {
 		$tipo = R::findAll("tipos");
 		foreach ($tipo as $e) {

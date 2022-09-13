@@ -14,17 +14,12 @@ class Home extends Public_Controller {
         $cfg = configuracao();
         $php = configuracao_PHP();
 
-        /* Os dados da Model aqui 
-        $dados = array(
-            array('id' =>1, 'nome' => 'Arroz'),
-            array('id' =>2, 'nome' => 'Feijão'),
-            array('id' =>3, 'nome' => 'Massa'),
-        );*/
-
-       // $this->data['dados'] = $dados;
+        //carregar dados 
+        $this->data['imagem'] = R::findAll("imagens");
 
         // Caso sistema funcione apenas logado, descomentar a linha abaixo e importar o helper URL no construtor
        // redirect("admin");
+
         $this->data['modulo_meiogeral'] = $this->load->view('public/includes/meiogeral.php', $this->data, TRUE);	
         $this->data['modulo_cabecalho'] = $this->load->view('public/includes/header.php', $cfg, TRUE);	
         $this->data['modulo_rodape'] = $this->load->view('public/includes/footer.php',$cfg, TRUE);      
