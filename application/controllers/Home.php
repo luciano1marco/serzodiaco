@@ -16,7 +16,7 @@ class Home extends Public_Controller {
 
         //carregar dados 
         $this->data['imagem'] = R::findAll("imagens");
-
+       
         // Caso sistema funcione apenas logado, descomentar a linha abaixo e importar o helper URL no construtor
        // redirect("admin");
 
