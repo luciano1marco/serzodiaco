@@ -11,42 +11,42 @@
   </head>
  <!--- script para o menu  -->           
  <style>
-#Mymenu{
-    background-image: linear-gradient(to left, #C0574C, #E67817 );
-    position: relative;
-    margin-top: 0 !important;
-}
-#Mymenu h2{
-    font-size: 60px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 40px;
-    color: #000;
-}
-#Mymenu h4{
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 5px;
-    color: #000;
-}
-#botoes{
-    margin-top: 80 !important;
-    text-decoration: none;
- }
-#botoes :hover{
-    color: #e67817;
-    
-}
-#sociais{
-    margin-top: 200 !important;  
-}
-#Mymenu p{
-    text-align: center;
- }
-#Mymenu a{
-    color:#000;
-}
+    #Mymenu{
+        background-image: linear-gradient(to left, #C0574C, #E67817 );
+        position: relative;
+        margin-top: 0 !important;
+    }
+    #Mymenu h2{
+        font-size: 60px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 40px;
+        color: #000;
+    }
+    #Mymenu h4{
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 5px;
+        color: #000;
+    }
+    #botoes{
+        margin-top: 80 !important;
+        text-decoration: none;
+    }
+    #botoes :hover{
+        color: #e67817;
+        
+    }
+    #sociais{
+        margin-top: 200 !important;  
+    }
+    #Mymenu p{
+        text-align: center;
+    }
+    #Mymenu a{
+        color:#000;
+    }
 </style>  
 
 <div id="Mymenu">  
@@ -76,7 +76,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#oquee">História</a>
-                                    <a class="dropdown-item" href="#apoiadores">Apoiadores</a>
+                                    <a class="dropdown-item" href="#apoio">Apoiadores</a>
                                 </div>
                             </div>
                             <div class="dropdown">
@@ -86,13 +86,18 @@
                             </div>   
                             <div class="dropdown">
                                 <button class="btn btn-outline-light " type="button" >
-                                    <a href="#imagens">Imagens</a> 
+                                    <a href="#imagens">Galeria</a> 
                                 </button>
                             </div> 
+                           
                             <div class="dropdown">
-                                <button type="button" class="btn btn-outline-light">
-                                    <a href="/serzodiaco/register">Socio</a>    
+                                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   <a href="" >Socio </a>
                                 </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item"  href="/serzodiaco/register">Seja Socio</a>
+                                    <a class="dropdown-item" href="/serzodiaco/home/listar/">Listar Socios</a>
+                                </div>
                             </div>
                             <div class="dropdown">
                                 <button type="button" class="btn btn-outline-light">

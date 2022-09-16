@@ -154,7 +154,7 @@
                 </a>
             </div> 
             
-            <div class="col-md-12" ><h3>Galeria de Fotos</h3>
+            <div class="col-md-12" id="imagens"><h3>Galeria de Fotos</h3>
                 <!-- imagens  --->
                 <div class="col-md-4"></div>
                 <div class="col-md-4">

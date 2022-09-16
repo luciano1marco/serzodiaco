@@ -14,58 +14,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php $anchor = 'public/'.$this->router->class; ?>
 
-<body>
-
-    <section class="container questionario">
-        <main role="main">
-            <div id="register">
-                <h2>Cadastre-se para ser Socio</h2>
-                <h6>*Após o envio Aguarde aprovação da Diretoria</h6>
-            </div>
-        </main>
-    
-        <?php echo form_open(current_url(), array('class' => 'form-horizontal', 'id' => 'form-questionario', 'name' => 'questionario'  )); ?>
-            <div class="row clearfix"></div>
-            <div class="col-md-12 column">
-                <!-- chama os forms em /public/questoes/ -->
-                <?php echo $form_socio; ?>
-                        
-                <?php
-                    $submit     = '<i class="fa fa-check" id="btEnviar"></i> Associar';               
-                ?>
-
-                <div class="row mx-auto" style="width: 120px;">            
-                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-success btn-flat btn-lg float-right', 'content' => $submit)); ?>                           
-                </div>
-
-            </div>    
-            <!--col-md-12 column-->
-        <div class="row clearfix"></div>
-
-        <?php echo form_close();?>
-    </section>    
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalsucesso" tabindex="-1" role="dialog" aria-labelledby="modalsucesso" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">            
-                <div class="modal-header">
-                    <h4 class="modal-title" id="modalsucesso">SUCESSO
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <?php echo $this->session->flashdata('message'); ?>               
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>           
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+<div class="content-wrapper">
+	<section class="content">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="box">
+					<div class="box-header with-border">
+						<div class="panel panel-danger">
+							<div class="panel-heading">
+								<h3 align="center">Lista de Todos os Socios do Zodíaco</h3>
+							</div>
+						</div>
+					</div>
+					<div class="box-body">
+						<table class="table table-striped table-hover datatable">
+							<thead>
+								<tr>
+									<th>Socio</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach ($pessoa as $apa) : ?>
+									<tr>
+										<td><?php echo htmlspecialchars($apa['nome'], ENT_QUOTES, 'UTF-8'); ?></td>
+									</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
 
 <?php echo $modulo_rodape; ?>
 
