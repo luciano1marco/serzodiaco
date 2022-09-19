@@ -235,6 +235,29 @@ class pessoas extends Admin_Controller {
 		/* Load Template */
 		$this->template->admin_render('admin/pessoas/edit', $this->data);
 	}
+	function activate($id) {
+		$id = (int) $id;
+	
+		$item = R::load("pessoas", $id);
 
+		$item->ativo = 1;
+		
+		R::store($item);
+		
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/pessoas', 'refresh');
+	}
+
+	public function deactivate($id) {
+		$id = (int) $id;
+
+		$item = R::load("pessoas", $id);
+		$item->ativo = 0;
+		
+		R::store($item);
+		
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/pessoas', 'refresh');
+	}
 
 }

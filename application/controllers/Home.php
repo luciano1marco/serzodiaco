@@ -31,12 +31,17 @@ class Home extends Public_Controller {
 
         $this->load->view('public/home', $this->data);
 	}
-    public function listar() {
+    
+    public function listar() { //lista os socios ativos
         $cfg = configuracao();
         $php = configuracao_PHP();
 
         // pessoas
-        $this->data['pessoa'] = R::findAll("pessoas");
+        $sql = "Select s.id, s.nome, s.ativo
+					From pessoas s
+					where s.ativo = 1";
+		
+		$this->data['socio'] = R::getAll($sql);
         
         $this->data['modulo_meiogeral'] = $this->load->view('public/includes/meiogeral.php', $this->data, TRUE);	
         $this->data['modulo_cabecalho'] = $this->load->view('public/includes/header.php', $cfg, TRUE);	

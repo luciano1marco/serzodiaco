@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($pessoa as $apa) : ?>
+								<?php foreach ($socio as $apa) : ?>
 									<tr>
 										<td><?php echo htmlspecialchars($apa['nome'], ENT_QUOTES, 'UTF-8'); ?></td>
 									</tr>
