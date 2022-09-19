@@ -73,14 +73,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-/*
-$mainDbHost = "192.168.0.116";
-$mainDbUser = "quest-educacao";
-$mainDbPassword = "quest@123";
-$mainDbDatabase = "quest-educacao";
-$mainDbDriver = "mysqli";
-*/
-
 $mainDbHost = "localhost";
 $mainDbUser = "root";
 $mainDbPassword = "";
