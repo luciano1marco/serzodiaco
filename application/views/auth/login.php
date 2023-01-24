@@ -44,7 +44,7 @@
                             <!-- botões do login-->
                             <div class="row" id="bota" >
                                 <div class="col-xs-4 "><br>
-                                    <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-primary btn-block btn-flat', 'id' =>'bt')); ?>
+                                    <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-orange btn-block btn-flat', 'id' =>'bt')); ?>
                                 </div>
                                
                                 <div class="col-xs-4"><br>

@@ -3,13 +3,13 @@
 if (!function_exists('configuracao'))
 {
 	function configuracao(){
-		$data['title'] = 'S.E.R.Zodíaco ';
+		//$data['title'] = 'Questionário Comunidade Escolar';
 		$data['CHARSET'] = 'UTF-8';	
 		//$data['CHARSET'] = 'ISO-8859-1';						
 		$data['favicon'] = 'favicon.ico';
-		$data['description'] = 'LCM - Luciano Correa Marco';
-		$data['copyright'] =  'LCM - Luciano Correa Marco';
-		$data['author'] =  'LCM - Luciano Correa Marco';
+		//$data['description'] = 'PMRG - Superintendência de Tecnologia da Informação';
+		//$data['copyright'] =  'PMRG - Superintendência de Tecnologia da Informação';
+		//$data['author'] =  'PMRG - Superintendência de Tecnologia da Informação';
 
 		$data['arq_css'] = null;
 		$data['arq_js'] = null;
@@ -46,9 +46,9 @@ if (!function_exists('configuracao'))
 
         {heading_row_start}<tr style="border:none;">{/heading_row_start}
 
-        {heading_previous_cell}<th style="border:none;" class="padB"><a class="calnav" data-calvalue="{previous_url}" href="javascript:void(0);"><button type="button" id="prev" class="btn btn-danger"><i class="fa fa-arrow-left"></i></button></a></th>{/heading_previous_cell}
+        {heading_previous_cell}<th style="border:none;" class="padB"><a class="calnav" data-calvalue="{previous_url}" href="javascript:void(0);"><button type="button" id="prev" class="btn btn-orange"><i class="fa fa-arrow-left"></i></button></a></th>{/heading_previous_cell}
         {heading_title_cell}<th style="border:none;" colspan="{colspan}"><h2>{heading}</h2></th>{/heading_title_cell}
-        {heading_next_cell}<th style="border:none;" class="padB"><a class="calnav" data-calvalue="{next_url}" href="javascript:void(0);"><button type="button" id="prev" class="btn btn-danger"><i class="fa fa-arrow-right"></i></button></a></th>{/heading_next_cell}
+        {heading_next_cell}<th style="border:none;" class="padB"><a class="calnav" data-calvalue="{next_url}" href="javascript:void(0);"><button type="button" id="prev" class="btn btn-orange"><i class="fa fa-arrow-right"></i></button></a></th>{/heading_next_cell}
 
         {heading_row_end}</tr>{/heading_row_end}
 

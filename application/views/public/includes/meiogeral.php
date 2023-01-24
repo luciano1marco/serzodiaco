@@ -80,7 +80,7 @@
         <div class="row">
              <!-- fundo rio grande por elas -->   
             <a href="#">
-                <img class="img-responsive" src="public/images/fundomeio.jpg"  >
+                <img class="img-responsive" src="public/images/fundomeio.png"  >
             </a>
             <!-- triangulo -->
             <a href="#">

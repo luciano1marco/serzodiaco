@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['title']      = 'S.E.R.Zodíaco';
-$config['title_mini'] = 'SERZ';
-$config['title_lg']   = 'Sociedade Esportiva e Racreativa Zodíaco';
+$config['title_mini'] = 'Z';
+$config['title_lg']   = 'S.E.R.Zodíaco';
 
 
 
@@ -15,7 +15,7 @@ $config['new_membership']      = FALSE;
 
 $config['includes']      =  array(
                                     'colorpicker' => array('grupos'),
-                                    'select2' => array('escolas', 'regioes'),
+                                    'select2' => array('bairrozona', 'regioes'),
                                     'datepicker' => array(),
                                     'cycle2' => array(),
                                     'leaflet' => array('escolas', 'regioes', 'questionario'),

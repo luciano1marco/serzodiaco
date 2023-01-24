@@ -114,8 +114,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-10">
                                                     <div class="btn-group">
-                                                        <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-danger btn-flat', 'content' => lang('actions_submit'))); ?>
-                                                        <?php echo anchor('admin/prefs/reset_interfaces_admin', lang('actions_default_values'), array('class' => 'btn btn-danger btn-flat')); ?>
+                                                        <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-orange btn-flat', 'content' => lang('actions_submit'))); ?>
+                                                        <?php echo anchor('admin/prefs/reset_interfaces_admin', lang('actions_default_values'), array('class' => 'btn btn-default btn-flat')); ?>
                                                     </div>
                                                 </div>
                                             </div>

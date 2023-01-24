@@ -4,20 +4,23 @@ body {
     /*font-family: 'Poppins', sans-serif;*/
     font-family: 'Open Sans', sans-serif;
 }
+.questionario{
+    background-color: transparent;
+}
 
 .jumbotron {
     position: relative;
     overflow: hidden;
-    background-color: #662e2e73;
+    background-color: transparent;
 }
 
 .jumbotron .container {
     position: relative;
     z-index: 2;
-    background: rgba(255, 255, 255, 0.555);
+    background: #296a7dd5;
     padding: 2rem;
-    border: 1px solid rgba(245, 243, 243, 0);
-    border-radius: 3px;
+    border: 1px solid rgba(107, 106, 44, 0);
+    
 }
 
 .jumbotron-background {
@@ -135,7 +138,12 @@ fa-tumblr,
 fa-tumblr:hover,
 .fa.fa-google-plus:hover,
 .fa.fa-tumblr:hover {
-    color: #fafafa;
+    color: #c57a40;
+}
+.fa.fa-facebook {
+    color: #38529A;
+    font-size: 20px;
+    padding: 10px;
 }
 
 .fa.fa-twitter {
@@ -145,7 +153,7 @@ fa-tumblr:hover,
 }
 
 .fa.fa-twitter:hover {
-    color: #fafafa;
+    color: #c57a40;
 }
 
 .fa.fa-instagram {
@@ -155,7 +163,7 @@ fa-tumblr:hover,
 }
 
 .fa.fa-instagram:hover {
-    color: #fafafa;
+    color: #c57a40;
 }
 
 .fa.fa-youtube {
@@ -165,7 +173,7 @@ fa-tumblr:hover,
 }
 
 .fa.fa-youtube:hover {
-    color: #fafafa;
+    color: #c57a40;
 }
 
 .copyright {
@@ -191,7 +199,7 @@ fa-tumblr:hover,
 }
 
 .modal-header {
-    background-color: #eb9181;
+    background-color: #4662ad;
 }
 
 .modal-title {

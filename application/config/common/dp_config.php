@@ -17,14 +17,12 @@ $host_dev = 'serzodiaco';
 // Example : www.johndoe.com
 //           johndoe.com
 //$host_prod = 'riogrande.rs.gov.br';
-$host_prod = 'www.serzodiaco.com.br';
+//$host_prod = 'extranet.riogrande.rs.gov.br/conexao/';
 
 // WARNING: Do not modify the lines below
 $domain = (in_array($_SERVER['HTTP_HOST'], $config['host_dev'], TRUE)) ? $_SERVER['HTTP_HOST'] . '/' . $host_dev : $host_prod;
 
-
-$WEB_PROTOCOL = (@$_SERVER['SERVER_PORT'] == '443' || @$_SERVER['REQUEST_SCHEME'] == 'https' || @$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
-$config['base_url'] = $WEB_PROTOCOL . $domain;
+$config['base_url'] = ( ! empty($_SERVER['HTTPS'])) ? 'https://' . $domain : 'http://' . $domain;
 
 /*  
 |--------------------------------------------------------------------------

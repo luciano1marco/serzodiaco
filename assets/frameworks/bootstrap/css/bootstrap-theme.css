@@ -6,6 +6,7 @@
 .btn-default,
 .btn-primary,
 .btn-success,
+.btn-orange,
 .btn-info,
 .btn-warning,
 .btn-danger {
@@ -16,12 +17,14 @@
 .btn-default:active,
 .btn-primary:active,
 .btn-success:active,
+.btn-orange:active,
 .btn-info:active,
 .btn-warning:active,
 .btn-danger:active,
 .btn-default.active,
 .btn-primary.active,
 .btn-success.active,
+.btn-orange.active,
 .btn-info.active,
 .btn-warning.active,
 .btn-danger.active {
@@ -31,18 +34,21 @@
 .btn-default.disabled,
 .btn-primary.disabled,
 .btn-success.disabled,
+.btn-orange.disabled,
 .btn-info.disabled,
 .btn-warning.disabled,
 .btn-danger.disabled,
 .btn-default[disabled],
 .btn-primary[disabled],
 .btn-success[disabled],
+.btn-orange[disabled],
 .btn-info[disabled],
 .btn-warning[disabled],
 .btn-danger[disabled],
 fieldset[disabled] .btn-default,
 fieldset[disabled] .btn-primary,
 fieldset[disabled] .btn-success,
+fieldset[disabled] .btn-orange,
 fieldset[disabled] .btn-info,
 fieldset[disabled] .btn-warning,
 fieldset[disabled] .btn-danger {
@@ -52,6 +58,7 @@ fieldset[disabled] .btn-danger {
 .btn-default .badge,
 .btn-primary .badge,
 .btn-success .badge,
+.btn-orange .badge,
 .btn-info .badge,
 .btn-warning .badge,
 .btn-danger .badge {
@@ -155,15 +162,35 @@ fieldset[disabled] .btn-primary.active {
   background-repeat: repeat-x;
   border-color: #3e8f3e;
 }
+.btn-orange {
+  background-image: -webkit-linear-gradient(top, #5cb85c 0%, #419641 100%);
+  background-image:      -o-linear-gradient(top, #5cb85c 0%, #419641 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#419641));
+  background-image:         linear-gradient(to bottom, #5cb85c 0%, #419641 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff419641', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-color: #bb7d31;
+}
 .btn-success:hover,
 .btn-success:focus {
   background-color: #419641;
+  background-position: 0 -15px;
+}
+.btn-success:hover,
+.btn-success:focus {
+  background-color: #bb7d31;
   background-position: 0 -15px;
 }
 .btn-success:active,
 .btn-success.active {
   background-color: #419641;
   border-color: #3e8f3e;
+}
+.btn-success:active,
+.btn-success.active {
+  background-color: #bb7d31;
+  border-color: #bb7d31;
 }
 .btn-success.disabled,
 .btn-success[disabled],
@@ -184,6 +211,27 @@ fieldset[disabled] .btn-success:active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
   background-color: #419641;
+  background-image: none;
+}
+.btn-orange.disabled,
+.btn-orange[disabled],
+fieldset[disabled] .btn-orange,
+.btn-orange.disabled:hover,
+.btn-orange[disabled]:hover,
+fieldset[disabled] .btn-orange:hover,
+.btn-orange.disabled:focus,
+.btn-orange[disabled]:focus,
+fieldset[disabled] .btn-orange:focus,
+.btn-orange.disabled.focus,
+.btn-orange[disabled].focus,
+fieldset[disabled] .btn-orange.focus,
+.btn-orange.disabled:active,
+.btn-orange[disabled]:active,
+fieldset[disabled] .btn-orange:active,
+.btn-orange.disabled.active,
+.btn-orange[disabled].active,
+fieldset[disabled] .btn-orange.active {
+  background-color: #bb7d31;
   background-image: none;
 }
 .btn-info {
@@ -468,6 +516,14 @@ fieldset[disabled] .btn-danger.active {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#449d44));
   background-image:         linear-gradient(to bottom, #5cb85c 0%, #449d44 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0);
+  background-repeat: repeat-x;
+}
+.progress-bar-orange {
+  background-image: -webkit-linear-gradient(top, #bb7d31 0%, #bb7d31 100%);
+  background-image:      -o-linear-gradient(top, #bb7d31 0%, #bb7d31 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#bb7d31), to(#bb7d31));
+  background-image:         linear-gradient(to bottom, #bb7d31 0%, #bb7d31 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bb7d315c', endColorstr='#bb7d3144', GradientType=0);
   background-repeat: repeat-x;
 }
 .progress-bar-info {

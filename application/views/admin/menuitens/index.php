@@ -31,11 +31,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-md-12">
 				<div class="box">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo anchor('admin/menuitens/create', '<i class="fa fa-plus"></i> Novo Item de Menu', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
+						<h3 class="box-title"><?php echo anchor('admin/menuitens/create', '<i class="fa fa-plus"></i> Novo Item de Menu', array('class' => 'btn btn-block btn-orange btn-flat')); ?></h3>
 					</div>
 					
 					<div class="box-body">
-						<table id="datatable" class="table table-striped table-hover">
+						<table class="table table-striped table-hover datatable">
 							<thead>
 								<tr>
 									<th>Descrição</th>
@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 									<!-- Opções -->                                            
 									<td>
-										<?php echo anchor($anchor.'/edit/'.$i['id'], "<button class=\"btn btn-primary\"><i class=\"fa fa-pencil\"></i> Editar</button>"); ?>
+										<?php echo anchor($anchor.'/edit/'.$i['id'], "<button class=\"btn btn-orange\"><i class=\"fa fa-pencil\"></i> Editar</button>"); ?>
 									</td>
 								</tr>
 							<?php endforeach;?>

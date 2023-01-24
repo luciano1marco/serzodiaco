@@ -1,799 +1,203 @@
 $(document).ready(function () {
 
-    function relqdq() {
+    function relmes2() {
         $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelqdq',
+            url: '//' + window.location.host + '/clinica/admin/relatorios/getmes',
             method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var dt = new Array();
+            success: function(data) {
+                var qtde = new Array();
+                var mes = new Array();
                 var cor = [];
-                var id = [];
 
                 for (var i in data) {
                     //console.log(data);
-                    dt.push(data[i].dt);
+                    qtde.push(data[i].qtde);
+                    mes.push(data[i].mes);
                     cor.push(data[i].cor);
-                    id.push(data[i].id);
-               
                 }
-                
+
                 var chartdata = {
-                    labels: dt,
-                    datasets: [
-                        {
-                            label: ['Quantidade'],
-                            backgroundColor: getColors(12),
-                            //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data:  id 
-                        }
-                    ]
+                    labels: getmes(mes),
+                    datasets: [{
+                        label: ['Total'],
+                        backgroundColor: getColors(12),
+                        //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+                        data: qtde
+                    }]
                 };
 
-                var cty = $("#relqdqbar");
+                var cty = $("#relmes");
+
+                Chart.pluginService.register({
+                    beforeRender: function(chart) {
+                        if (chart.config.options.showAllTooltips) {
+                            chart.pluginTooltips = [];
+                            chart.config.data.datasets.forEach(function(dataset, i) {
+                                chart.getDatasetMeta(i).data.forEach(function(sector, j) {
+                                    chart.pluginTooltips.push(new Chart.Tooltip({
+                                        _chart: chart.chart,
+                                        _chartInstance: chart,
+                                        _data: chart.data,
+                                        _options: chart.options.tooltips,
+                                        _active: [sector]
+                                    }, chart));
+                                });
+                            });
+                            chart.options.tooltips.enabled = false;
+                        }
+                    },
+                    afterDraw: function(chart, easing) {
+                        if (chart.config.options.showAllTooltips) {
+                            if (!chart.allTooltipsOnce) {
+                                if (easing !== 1)
+                                    return;
+                                chart.allTooltipsOnce = true;
+                            }
+
+                            chart.options.tooltips.enabled = true;
+                            Chart.helpers.each(chart.pluginTooltips, function(tooltip) {
+                                tooltip.initialize();
+                                tooltip.update();
+                                tooltip.pivot();
+                                tooltip.transition(easing).draw();
+                            });
+                            chart.options.tooltips.enabled = false;
+                        }
+                    }
+                });
 
                 var barGraph = new Chart(cty, {
                     type: 'bar',
                     data: chartdata,
                     options: {
-                        legend: { display: false },
+                        legend: { display: false, position: 'right', align: 'start' },
                         title: {
                             display: true,
-                            text: 'Quantidade de Questionários por Data'
+                            text: 'Total por Mês '
+                        },
+                        showAllTooltips: true,
+                        tooltips: {
+                            callbacks: {
+                                title: function(tooltipItems, data) {
+                                    return '';
+                                },
+                                label: function(tooltipItem, data) {
+                                    var datasetLabel = '';
+                                    var label = data.labels[tooltipItem.index];
+                                    return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                }
+                            }
                         }
                     }
                 });
-
             },
-            error: function (data) {
+            error: function(data) {
                 console.log(data);
             }
         });
     }
 
-    function relqtotal() {
+    function relmes() {
         $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelqtotal',
+            url: '//' + window.location.host + '/clinica/admin/relatorios/getmes',
             method: "GET",
-            success: function (data) {
-                //console.log(data);
+            success: function(data) {
                 var total = new Array();
+                var mes = new Array();
+                var nome = [];
                 var cor = [];
-                
+
                 for (var i in data) {
                     //console.log(data);
                     total.push(data[i].total);
+                    mes.push(data[i].mes);
+                    nome.push(data[i].nome);
                     cor.push(data[i].cor);
-                  
                 }
-                
+
                 var chartdata = {
-                    labels: total,
-                    datasets: [
-                        {
-                            label: total,
-                            backgroundColor: getColors(12),
-                            //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data:  total 
-                        }
-                    ]
+                    labels: getmes(mes),
+                    datasets: [{
+                        label: ['Total '],
+                        backgroundColor: getColors(12),
+                        //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+                        data: total
+
+                    }]
                 };
 
-                var cty = $("#relqtotalbar");
+                var cty = $("#relmes");
+
+                Chart.pluginService.register({
+                    beforeRender: function(chart) {
+                        if (chart.config.options.showAllTooltips) {
+                            chart.pluginTooltips = [];
+                            chart.config.data.datasets.forEach(function(dataset, i) {
+                                chart.getDatasetMeta(i).data.forEach(function(sector, j) {
+                                    chart.pluginTooltips.push(new Chart.Tooltip({
+                                        _chart: chart.chart,
+                                        _chartInstance: chart,
+                                        _data: chart.data,
+                                        _options: chart.options.tooltips,
+                                        _active: [sector]
+                                    }, chart));
+                                });
+                            });
+                            chart.options.tooltips.enabled = false;
+                        }
+                    },
+                    afterDraw: function(chart, easing) {
+                        if (chart.config.options.showAllTooltips) {
+                            if (!chart.allTooltipsOnce) {
+                                if (easing !== 1)
+                                    return;
+                                chart.allTooltipsOnce = true;
+                            }
+
+                            chart.options.tooltips.enabled = true;
+                            Chart.helpers.each(chart.pluginTooltips, function(tooltip) {
+                                tooltip.initialize();
+                                tooltip.update();
+                                tooltip.pivot();
+                                tooltip.transition(easing).draw();
+                            });
+                            chart.options.tooltips.enabled = false;
+                        }
+                    }
+                });
 
                 var barGraph = new Chart(cty, {
                     type: 'bar',
                     data: chartdata,
                     options: {
-                        legend: { display: false },
+                        legend: { display: false, },
                         title: {
-                            display: true,
-                            text: 'Quantidade Total de Questionários '
-                        }
+                            display: true
+                            
+                        },
+                        showAllTooltips: true, //mostra a etiqueta em cima do grafico
+                        /*tooltips: {
+                            callbacks: {
+                                title: function(tooltipItems, data) {
+                                    return '';
+                                },
+                                label: function(tooltipItem, data) {
+                                    var datasetLabel = '';
+                                    var label = data.labels[tooltipItem.index];
+                                    return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                }
+                            }
+                        }*/
                     }
                 });
-
             },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-    function relrisco() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelrisco',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var qtd = new Array();
-                var total = new Array();
-                var cor = [];
-
-
-                for (var i in data) {
-                    //console.log(data);
-                    qtd.push(data[i].qtd);
-                    total.push(data[i].total);
-                    cor.push(data[i].cor);
-
-                }
-
-                por = [qtd * 100 / total];
-                por = parseFloat(por).toFixed(2);//fixar casa decimal em 2
-               
-                qtd = [qtd, total];
-
-                var chartdata1 = {
-                    labels: ['Grupo de Risco - (' + por + '%)' , 'Total - ('+ total + ')'],
-                    datasets: [
-                        {
-                            label: 'Quantidade Grupo de Risco',
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: qtd
-                        }
-                    ]
-                }
-
-                    ;
-
-                var cty = $("#relriscopie");
-               
-                var pieChart = new Chart(cty, {
-                    type: 'pie',
-                    data: chartdata1,
-                    options: {
-                        legend: { display: true , position: 'left', align: 'start'},
-                        title: {
-                            display: true,
-                            text: 'Quantidade Fazem parte do Grupo de Risco '
-                        }
-                    }
-                });
-
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-     
-    function relestudante() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelestudante',
-            method: "GET",
-            success: function (data) {
-                //console.log(qespecial,qestudantes);
-                var qespecial = new Array();
-                var cor = [];
-                var qestudantes = new Array();
-                //var dois = [];
-
-                for (var i in data) {
-                    //console.log(data);
-                    qespecial.push(data[i].qespecial);
-                    cor.push(data[i].cor);
-                    qestudantes.push(data[i].qestudantes);
-                    //dois.push(data[i].dois);
-               
-                }
-                console.log(qespecial,qestudantes);
-               
-                
-                var chartdata = {
-                    labels: qestudantes,
-                    datasets: [
-                        {
-                            label: qestudantes,
-                            backgroundColor: getColors(12),
-                            //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: qestudantes
-                        }
-                    ]
-                };
-
-                var cty = $("#relestudantepie");
-
-                var barGraph = new Chart(cty, {
-                    type: 'bar',
-                    data: chartdata,
-                    options: {
-                        legend: { display: false },
-                        title: {
-                            display: true,
-                            text: 'Quantidade Total de Estudantes '
-                        }
-                    }
-                });
-
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-
-    function relespecial() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelespecial',
-            method: "GET",
-            success: function (data) {
-                //console.log(qespecial,qestudantes);
-                var qespecial = new Array();
-                var cor = [];
-                var qestudantes = new Array();
-                //var dois = [];
-
-                for (var i in data) {
-                    //console.log(data);
-                    qespecial.push(data[i].qespecial);
-                    cor.push(data[i].cor);
-                    qestudantes.push(data[i].qestudantes);
-                    //dois.push(data[i].dois);
-               
-                }
-                console.log(qespecial,qestudantes);
-               
-                
-                var chartdata = {
-                    labels: qespecial,
-                    datasets: [
-                        {
-                            label: qespecial,
-                            backgroundColor: getColors(12),
-                            //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: qespecial
-                        }
-                    ]
-                };
-
-                var cty = $("#relespecialpie");
-
-                var barGraph = new Chart(cty, {
-                    type: 'bar',
-                    data: chartdata,
-                    options: {
-                        legend: { display: false },
-                        title: {
-                            display: true,
-                            text: 'Quantidade de Estudantes da Educação Especial'
-                        }
-                    }
-                });
-
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-    function relretorno() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelretorno',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var ordem = new Array();
-                var cor = [];
-                var descricao = [];
-
-                for (var i in data) {
-                    //console.log(data);
-                    ordem.push(data[i].ordem);
-                    cor.push(data[i].cor);
-                    descricao.push(data[i].descricao);
-
-                }
-
-                
-                var chartdata = {
-                    labels: descricao,
-                    datasets: [
-                        {
-                            label: descricao ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: ordem
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#relretornobar");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'Mais Votadas a Retornar em 1º'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-   
-    function relretorno2() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelretorno2',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var ordem = new Array();
-                var cor = [];
-                var descricao = [];
-
-                for (var i in data) {
-                    //console.log(data);
-                    ordem.push(data[i].ordem);
-                    cor.push(data[i].cor);
-                    descricao.push(data[i].descricao);
-
-                }
-
-                
-                var chartdata = {
-                    labels: descricao,
-                    datasets: [
-                        {
-                            label: descricao ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: ordem
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#relretornobar2");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'Mais Votadas a Retornar em 2º'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-    function relretorno3() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelretorno3',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var ordem = new Array();
-                var cor = [];
-                var descricao = [];
-
-                for (var i in data) {
-                    //console.log(data);
-                    ordem.push(data[i].ordem);
-                    cor.push(data[i].cor);
-                    descricao.push(data[i].descricao);
-
-                }
-
-                
-                var chartdata = {
-                    labels: descricao,
-                    datasets: [
-                        {
-                            label: descricao ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: ordem
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#relretornobar3");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'Mais Votadas a Retornar em 3º'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-    function relpresencial() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelpresencial',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var presencial = new Array();
-                var cor = [];
-                var descricao = [];
-
-                for (var i in data) {
-                    //console.log(data);
-                    presencial.push(data[i].presencial);
-                    cor.push(data[i].cor);
-                    descricao.push(data[i].descricao);
-
-                }
-
-                
-                var chartdata = {
-                    labels: descricao,
-                    datasets: [
-                        {
-                            label: descricao ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: presencial
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#relpresencialbar2");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'Melhor forma dos Estudantes acessarem atividades escolares'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-    
-    function reltrabalho() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getreltrabalho',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var qtd = new Array();
-                var cor = [];
-                var descricao = [];
-
-                for (var i in data) {
-                    //console.log(data);
-                    qtd.push(data[i].qtd);
-                    cor.push(data[i].cor);
-                    descricao.push(data[i].descricao);
-
-                }
-
-                
-                var chartdata = {
-                    labels: descricao,
-                    datasets: [
-                        {
-                            label: descricao ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: qtd
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#reltrabalhobar");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'Com quem os Estudantes ficam'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-    function reltrabalho1() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getreltrabalho1',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var qtd = new Array();
-                var cor = [];
-                var ntem = [];
-                var tem = new Array();
-
-                for (var i in data) {
-                    //console.log(data);
-                    qtd.push(data[i].qtd);
-                    cor.push(data[i].cor);
-                    tem.push(data[i].tem);
-                    ntem.push(data[i].ntem);
-                }
-
-                ntem = [qtd - tem];
-                tem = [tem , ntem, qtd];
-
-                var chartdata = {
-                    labels: ['Trabalham Presencial', 'Não Presencial', 'Total'],
-                    datasets: [
-                        {
-                            label: tem ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: tem
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#reltrabalho1bar");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'Quantidade que Trabalham Presencial'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-    function relacesso() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelacesso',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var qtd = new Array();
-                var cor = [];
-                var descricao = [];
-                
-                for (var i in data) {
-                    //console.log(data);
-                    qtd.push(data[i].qtd);
-                    cor.push(data[i].cor);
-                    descricao.push(data[i].descricao);
-               
-                }
-
-                var chartdata = {
-                    labels: descricao,
-                    datasets: [
-                        {
-                            label: qtd ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: qtd
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#relacessobar");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'De qual local a familia acessa a internet'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-    function relacesso1() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelacesso1',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var qtd = new Array();
-                var cor = [];
-                var descricao = [];
-                
-                for (var i in data) {
-                    //console.log(data);
-                    qtd.push(data[i].qtd);
-                    cor.push(data[i].cor);
-                    descricao.push(data[i].descricao);
-               
-                }
-
-                var chartdata = {
-                    labels: descricao,
-                    datasets: [
-                        {
-                            label: qtd ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: qtd
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#relacesso1bar");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'Qual tipo de Internet a familia acessa'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
-    function relaparelho() {
-        $.ajax({
-            url: 'http://' + window.location.host + '/questionario-educacao/admin/relatorios/getrelaparelho',
-            method: "GET",
-            success: function (data) {
-                //console.log(data);
-                var ordem = new Array();
-                var cor = [];
-                var descricao = [];
-
-                for (var i in data) {
-                    //console.log(data);
-                    ordem.push(data[i].ordem);
-                    cor.push(data[i].cor);
-                    descricao.push(data[i].descricao);
-
-                }
-
-                
-                var chartdata = {
-                    labels: descricao,
-                    datasets: [
-                        {
-                            label: descricao ,
-                            backgroundColor: getColors(12),
-                            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                            data: ordem
-                        }
-                    ]
-                }
-                ;
-
-                var ctx = $("#relaparelhobar");
-               
-                var barGraph = new Chart(ctx, {
-                    type: 'pie',
-                    data: chartdata,
-                    options: {
-                        legend: { display: true, position: 'left', align: 'start' },
-                        title: {
-                            display: true,
-                            text: 'Aparelhos tecnológicos que os estudantes tem acesso'
-                        }
-                    }
-                });
-                
-               
-            },
-            error: function (data) {
+            error: function(data) {
                 console.log(data);
             }
         });
@@ -836,7 +240,8 @@ $(document).ready(function () {
                         ticks: {
                             min: 0,
                         }
-                    }]
+                    }],
+                    
                 }
             }
         });
@@ -844,20 +249,8 @@ $(document).ready(function () {
     }
 
     function initGraph() {
-        relqdq();
-        relqtotal();
-        relespecial();
-        relestudante();
-        relrisco();
-        relretorno();
-        relretorno2();
-        relretorno3();
-        relpresencial();
-        reltrabalho();
-        reltrabalho1();
-        relacesso();
-        relacesso1();
-        relaparelho();
+        relmes();
+        
 
         //fim-----
        
@@ -910,6 +303,24 @@ $(document).ready(function () {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
+    }
+
+    function getmes(mes) {
+        for (var i = 0; i < 12; i++) {
+            if (mes[i] == 1) mes[i] = 'janeiro';
+            if (mes[i] == 2) mes[i] = 'fevereiro';
+            if (mes[i] == 3) mes[i] = 'março';
+            if (mes[i] == 4) mes[i] = 'abril';
+            if (mes[i] == 5) mes[i] = 'maio';
+            if (mes[i] == 6) mes[i] = 'junho';
+            if (mes[i] == 7) mes[i] = 'julho';
+            if (mes[i] == 8) mes[i] = 'agosto';
+            if (mes[i] == 9) mes[i] = 'setembro';
+            if (mes[i] == 10) mes[i] = 'outubro';
+            if (mes[i] == 11) mes[i] = 'novembro';
+            if (mes[i] == 12) mes[i] = 'dezembro';
+        }
+        return mes;
     }
 
     initGraph();

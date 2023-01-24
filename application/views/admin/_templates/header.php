@@ -51,18 +51,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/ionicons/css/ionicons.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
-        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/skins/skin-red.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/skins/skin-orange.min.css'); ?>">
         
-        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/skins/skin-red-light.min.css'); ?>">
-        
-        
-        <!-- ICHECK e LIGHT BOX--> 
-        <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/icheck/skins/square/red.css'); ?>">
-        
-        
+        <!-- ICHECK e LIGHT BOX -->
+        <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/icheck/skins/square/orange.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/lightbox2/css/lightbox.min.css'); ?>">
         
+        <!--select2 --->
+        <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/select2/css/select2.min.css'); ?>"> 
+        <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/select2/css/themes/select2-bootstrap.min.css'); ?>"> 
+        <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/select2/css/themes/select2-flat-theme.css'); ?>"> 
+
         <!-- DATATABLES -->
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/datatables/datatables.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/css/custom_admin.css'); ?>">
@@ -161,8 +160,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/leaflet/map.css');?>" />
 
         <?php endif; ?>
-        <!-- wordpress -->
-        
 
         <!-- CHARTJS -->
         <?php
@@ -198,7 +195,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
     </head>
 
-    <body class="hold-transition skin-red fixed sidebar-mini">
+    <body class="hold-transition skin-orange fixed sidebar-mini">
     
     <!-- Inputs para passar o BASE URL e Controller para o JS -->
     <input type="hidden" id="base_url" value="<?= base_url() ?>" />

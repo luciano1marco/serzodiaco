@@ -8,14 +8,9 @@
         <link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
         <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
 
-        <title><?php echo $title; ?></title>
+        <title>Procure Psicóloga</title>
         
-        <meta name="title" content="<?php echo $title; ?>" />
-        <meta name="description" content="<?php echo $description; ?>" />
-        <meta name="copyright" content="<?php echo $copyright; ?>" />
-        <meta name="author" content="<?php echo $author; ?>" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      
+        
         <!-- Normalize -->
         <link rel="stylesheet" href="<?php echo base_url($public_css . '/normalize.css'); ?> ">        
 		<!-- BootStrap -->
@@ -30,6 +25,7 @@
 		<link rel="stylesheet" href="<?php echo base_url($public_css . '/main.css'); ?>"> 
         <!-- DATATABLES -->
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/datatables/datatables.min.css'); ?>">           
+        <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/datatables/datatables.css'); ?>"> 
         <!-- SELECT2 -->
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/bootstrap_select/bootstrap-select.min.css'); ?>"> 
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/select2/css/select2.min.css'); ?>"> 
@@ -38,10 +34,11 @@
        <!-- SELECT -->
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/bootstrap_select/bootstrap-select.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/datatables/datatables.min.css'); ?>">
-    
-       
-       
-        <!-- TIMEPICKER -->
+        
+        <!-- full calendar -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+       <!-- TIMEPICKER -->
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/bootstrap3-datetimepicker/bootstrap-datetimepicker.min.css'); ?>">
         <!-- LEAFLET -->
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/leaflet/leaflet/leaflet.css');?>" />     

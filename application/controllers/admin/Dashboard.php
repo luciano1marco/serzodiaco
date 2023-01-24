@@ -10,6 +10,10 @@ class Dashboard extends Admin_Controller {
         /* Load :: Common */
         $this->load->helper('number');
         $this->load->model('admin/dashboard_model');
+
+        $this->load->helper('configuracao');
+        $this->load->helper('utilidades');
+
     }
 
 
@@ -38,7 +42,9 @@ class Dashboard extends Admin_Controller {
             $this->data['memory_usage']      = $this->dashboard_model->memory_usage();
             $this->data['memory_peak_usage'] = $this->dashboard_model->memory_peak_usage(TRUE);
             $this->data['memory_usepercent'] = $this->dashboard_model->memory_usepercent(TRUE, FALSE);
-
+            $this->data['qtd_pts'] = count(R::findAll("usuariorede"));
+            
+           
 
             /* TEST */
             $this->data['url_exist']    = is_url_exist('http://www.domprojects.com');

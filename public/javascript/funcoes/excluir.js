@@ -9,3 +9,5 @@ $("#btExcluirConfirmar").bind("click", function (event) {
         window.location.href =  ($("#base_url").val() + "admin/" + $("#controlador").val() + "/deleteyes/" + $("input[name = id]")[0].value);
     }
 });
+
+

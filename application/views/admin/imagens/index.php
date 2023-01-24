@@ -14,14 +14,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			<div class="col-md-12">
 				<div class="box">
 					<div class="box-header with-border">
-						<div class="panel panel-danger">
+						<div class="panel panel-orange">
 							<div class="panel-heading">
 								<h3 align="center">Imagens</h3>
 							</div>
 						</div>
 					</div>
 					<div class="box-header with-border">
-						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalImagem">
+						<button type="button" class="btn btn-orange" data-toggle="modal" data-target="#modalImagem">
 						Adicionar Imagem     
 					</button> 
 					</div>
@@ -48,7 +48,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 										
 										<!-- Opções -->
 										<td>
-											<?php echo anchor($anchor.'/apagararquivo/'.$ima['id'], $delete, array('class' => 'btn btn-danger')); ?> 
+											<?php echo anchor($anchor.'/apagararquivo/'.$ima['id'], $delete, array('class' => 'btn btn-orange')); ?> 
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -87,7 +87,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <input type="submit" class="btn btn-primary" value="Enviar" />
+                        <input type="submit" class="btn btn-orange" value="Enviar" />
                     </div>
                 </div>
             </div>

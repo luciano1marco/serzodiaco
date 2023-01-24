@@ -410,7 +410,7 @@ class Panel extends Public_Controller {
             'data-live-search' 	=> TRUE,						
             'title' 			=> 'Escolha um Estado',
             'options'			=> $this->getEstados(),
-            'data-style' 		=> 'btn-danger'					
+            'data-style' 		=> 'btn-orange'					
         );	
 
         $this->data['rua_trabalho'] = array(
@@ -454,7 +454,7 @@ class Panel extends Public_Controller {
             'data-live-search' 	=> TRUE,						
             'title' 			=> 'Escolha um Estado',
             'options'			=> $this->getEstados(),
-            'data-style' 		=> 'btn-danger'					
+            'data-style' 		=> 'btn-orange'					
         );	
 
         $this->data['escolafilho'] = array(

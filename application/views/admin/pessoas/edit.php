@@ -8,6 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <?php echo $pagetitle; ?>
         <?php echo $breadcrumb; ?>
         <?php $anchor = 'admin/' . $this->router->class; ?>
+        
     </section>
 
     <section class="content">
@@ -76,11 +77,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     $cancel = '<i class="fa fa-times"></i> <span>Cancelar</span>';
                                     ?>
 
-                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-success btn-flat', 'content' => $submit)); ?>
+                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-orange btn-flat', 'content' => $submit)); ?>
                                     <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
                                     <?php echo form_button(array('type' => 'button', 'class' => 'btn btn-danger btn-flat', 'content' => $delete, "id" => "btExcluir")); ?>
-                                   
-                                </div>
+                                   </div>
                             </div>
                         </div>
                         <?php echo form_close(); ?>
