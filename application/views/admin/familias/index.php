@@ -10,10 +10,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<?php echo $breadcrumb; ?>
 		<?php $anchor = 'admin/' . $this->router->class; ?>
 		<?php $anchor1 = 'admin/pessoas'?>
-		
+		<?php $anchor2 = 'admin/mensalidades'?>
 	</section>
-
-
+	&nbsp;&nbsp;&nbsp;&nbsp;
+<!----Filiacao---------------------------->
 	<section class="content">
 		<div class="row">
 			<div class="col-md-12">
@@ -30,16 +30,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						</div>
 					</div>
 					<div class="box-header with-border">
-						<?php  $cancel = '<i class="fa fa-reply"></i> Voltar';?>
+							<?php  $cancel = '<i class="fa fa-reply"></i> Voltar';?>
                                    
-						<h3 class="box-title">
-							<?php echo anchor($anchor . '/create/'.$f['id'], '<i class="fa fa-plus"></i> ' . 'Adicionar Parente', array('class' => 'btn btn-block btn-orange btn-flat')); ?>
-						</h3>
-						
-						<h3 class="box-title">
-						&nbsp;&nbsp;&nbsp;&nbsp;
-							<?php echo anchor($anchor1, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
-						</h3>          
+							<h3 class="box-title">
+								<?php echo anchor($anchor . '/create/'.$f['id'], '<i class="fa fa-plus"></i> ' . 'Adicionar Parente', array('class' => 'btn btn-block btn-orange btn-flat')); ?>
+							</h3>
+							
+							<h3 class="box-title">
+							&nbsp;&nbsp;&nbsp;&nbsp;
+								<?php echo anchor($anchor1, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
+							</h3> 
+							<h3 class="text-center">Filiação</h3>         
 					</div>
 					<div class="box-body">
 
@@ -77,4 +78,66 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			</div>
 		</div>
 	</section>
+<!----Mensalidade---------------------------->
+	<section class="content">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="box">
+					<div class="box-header with-border">
+						
+					</div>
+					<div class="box-header with-border">
+						<?php  $cancel = '<i class="fa fa-reply"></i> Voltar';?>
+                                   
+						<h3 class="box-title">
+							<?php echo anchor($anchor2 . '/create/'.$f['id'], '<i class="fa fa-plus"></i> ' . 'Adicionar Pagamento', array('class' => 'btn btn-block btn-orange btn-flat')); ?>
+						</h3>
+						
+						<h3 class="box-title">
+						&nbsp;&nbsp;&nbsp;&nbsp;
+							<?php echo anchor($anchor1, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
+						</h3> 
+						<h3 class="text-center">Mensalidades</h3>             
+					</div>
+					<div class="box-body">
+
+						<table class="table table-striped table-hover datatable">
+							<thead>
+								<tr>
+									<!--<th>ID</th>-->
+									<th>Mes</th>
+									<th>Ano</th>
+									<th>Pago</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<?php foreach ($mensalida as $i) : ?>
+									<?php 							
+								
+										$ativo = $i['ativo'];
+										if($ativo == 1)    
+											$resp = '<span class="label label-success">SIM</span>';
+										else 			     
+											$resp = '<span class="label label-default">NÃO</span>';
+									?>
+									<tr>
+										<td><?php echo htmlspecialchars($i['descricao'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<td><?php echo htmlspecialchars($i['ano'], ENT_QUOTES, 'UTF-8'); ?></td>
+										
+										<td><?php echo ($resp) ; ?></td>
+	                
+										
+									</tr>
+								<?php endforeach; ?>							
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
 </div>

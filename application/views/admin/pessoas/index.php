@@ -12,7 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<?php $anchor1 = 'admin/familias'?>
 		
 	</section>
-
+	&nbsp;&nbsp;&nbsp;&nbsp;
 
 	<section class="content">
 		<div class="row">
@@ -46,14 +46,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 								<?php foreach ($pessoa as $i) : ?>
 									<?php 							
 								
-								$ativo   	= $i['ativo'];
-								$id 		= $i['id'];
-								// Para usar ID depois							
-								$id_check['value'] = $i['id'];
+										$ativo   	= $i['ativo'];
+										$id 		= $i['id'];
+										// Para usar ID depois							
+										$id_check['value'] = $i['id'];
 
-								$sim = '<span class="label label-success">SIM</span>';
-								$nao = '<span class="label label-default">NÃO</span>';
-							?>
+										$sim = '<span class="label label-success">SIM</span>';
+										$nao = '<span class="label label-default">NÃO</span>';
+									?>
 
 								<tr>
 									<td><?php echo htmlspecialchars($i['nome'], ENT_QUOTES, 'UTF-8'); ?></td>

@@ -6,8 +6,9 @@
         <?php echo $breadcrumb; ?>
         <?php $anchor = 'admin/' . $this->router->class; ?>
         <h3 class="box-title" align="center">Dados Pessoais</h3>
+
     </section>
-    &nbsp;&nbsp;&nbsp;&nbsp;
+
     <!------------------------------------------------------------------------------->
     <section class="content">
         <div class="row">

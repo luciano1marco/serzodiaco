@@ -33,7 +33,8 @@ class familias extends Admin_Controller {
             /* dados  */
 			$sql1 = "SELECT nome,id FROM pessoas where id = ".$id;
 			$this->data['socio'] = R::getAll($sql1);
-            $sql = "SELECT 	f.id,
+           
+		    $sql = "SELECT 	f.id,
 							f.id_socio, 
 							f.id_grau,
 							f.nome as parente,
@@ -50,7 +51,17 @@ class familias extends Admin_Controller {
 					where f.id_socio = ".$id;
 			
 			$this->data['familia'] = R::getAll($sql);
-           /* Breadcrumbs */
+           
+			$sql2="	SELECT * 
+					FROM mensalidades as m
+
+					inner join meses as me
+					on me.id = m.id_mes 
+
+					where id_socio = ".$id;
+			$this->data['mensalida'] = R::getAll($sql2);
+			
+			/* Breadcrumbs */
 			$this->data['breadcrumb'] = $this->breadcrumbs->show();
 
 			/* Nome do Botão Criar do INDEX */
@@ -360,5 +371,16 @@ class familias extends Admin_Controller {
         }
 		return $options;
     }
+	public function getmes(){
+        $sql = "SELECT * FROM meses ";
+		
+        $options = array("0" => "Selecione Mes");
+                
+        $result = R::getAll($sql);        
 
+		foreach ($result as $r) {   
+            $options[$r['id']] = $r['descricao'];           
+        }
+		return $options;
+    }
 }

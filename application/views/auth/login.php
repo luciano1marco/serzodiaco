@@ -43,12 +43,12 @@
                             <?php $ancho = 'register'?>               
                             <!-- botões do login-->
                             <div class="row" id="bota" >
-                                <div class="col-xs-4 "><br>
-                                    <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-orange btn-block btn-flat', 'id' =>'bt')); ?>
-                                </div>
-                               
+                                
                                 <div class="col-xs-4"><br>
                                     <?php echo form_submit('submit', 'Entrar', array('class' => 'btn btn-success btn-block btn-flat', 'id' =>'bt'));?>
+                                </div>
+                                <div class="col-xs-4 "><br>
+                                    <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-orange btn-block btn-flat', 'id' =>'bt')); ?>
                                 </div>
                             </div><br><br>
                              <!--- fim botões---->    
