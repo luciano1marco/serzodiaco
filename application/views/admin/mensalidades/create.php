@@ -31,12 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <?php echo form_dropdown($id_socio); ?>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <?php echo form_label('Mes', 'nome', array('class' => 'col-sm-2 control-label')); ?>
-                            <div class="col-sm-3">
-                                <?php echo form_dropdown($id_mes); ?>
-                            </div>
-                        </div>
+                        
                         <div class="form-group">
                             <?php echo form_label('Ano', 'nome', array('class' => 'col-sm-2 control-label')); ?>
                             <div class="col-sm-3">
@@ -50,7 +45,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                         </div>
                         
-               
                         <?php echo form_fieldset_close(); ?>
 
                         <div class="form-group">
@@ -68,7 +62,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <!-- (cancel)esta voltando para pessoas/index, para voltar para familias/index tem que pegar o id  ---->
                                     <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
                                     <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-orange btn-flat', 'content' => $redo)); ?>
-                                    
+                                    									
                                 </div>
                             </div>
                         </div>

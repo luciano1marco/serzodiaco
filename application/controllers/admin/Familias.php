@@ -52,12 +52,28 @@ class familias extends Admin_Controller {
 			
 			$this->data['familia'] = R::getAll($sql);
            
-			$sql2="	SELECT * 
-					FROM mensalidades as m
+			$sql2="SELECT 	m.id,
+							m.id_socio, 
+							p.nome as socio,
+							m.valor,
+							m.ano,
+							m.janeiro,
+							m.fevereiro,
+							m.marco,
+							m.abril,
+							m.maio,
+							m.junho,
+							m.julho,
+							m.agosto,
+							m.setembro,
+							m.outubro,
+							m.novembro,
+							m.dezembro
+					FROM `mensalidades` as m
 
-					inner join meses as me
-					on me.id = m.id_mes 
-
+					inner join pessoas as p
+					on m.id_socio = p.id
+																			
 					where id_socio = ".$id;
 			$this->data['mensalida'] = R::getAll($sql2);
 			
@@ -383,4 +399,226 @@ class familias extends Admin_Controller {
         }
 		return $options;
     }
+
+     //----ativado ou desativado-----------------
+
+	//----janeiro------------------
+	function active_jan($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->janeiro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_jan($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->janeiro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----fevereiro------------------
+	function active_fev($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->fevereiro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_fev($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->fevereiro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----marco------------------
+	function active_mar($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->marco = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_mar($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->marco = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	//----abril------------------
+	function active_abr($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->abril = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_abr($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->abril = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----maio------------------
+	function active_mai($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->maio = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_mai($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->maio = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----junho------------------
+	function active_jun($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->junho = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_jun($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->junho = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----julho------------------
+	function active_jul($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->julho = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_jul($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->julho = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----agosto------------------
+	function active_ago($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->agosto = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_ago($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->agosto = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	//----setembro------------------
+	function active_set($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->setembro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_set($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->setembro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----outubro------------------
+	function active_out($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->outubro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_out($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->outubro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----novembro------------------
+	function active_nov($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->novembro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_nov($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->novembro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+	//----dezembro------------------
+	function active_dez($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->dezembro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
+	public function desactive_dez($id,$id_socio) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->dezembro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/familias/index/'.$id_socio, 'refresh');
+	}
+
 }

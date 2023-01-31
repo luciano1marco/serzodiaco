@@ -31,12 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <?php echo form_dropdown($id_socio); ?>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <?php echo form_label('Mes', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
-                            <div class="col-sm-6">
-                            <?php echo form_dropdown($id_mes); ?>
-                            </div>
-                        </div>
+                       
                         <div class="form-group">
                             <?php echo form_label('Ano', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
                             <div class="col-sm-6">

@@ -32,21 +32,29 @@ class mensalidades extends Admin_Controller {
         {
             /* dados  */
 			
-			$sql="SELECT 	f.id,
-							f.id_socio, 
-							f.id_mes,
+			$sql="SELECT 	m.id,
+							m.id_socio, 
 							p.nome as socio,
-							g.descricao,
-							f.ativo,
-							f.valor,
-							f.ano
-					FROM `mensalidades` as f
+							m.valor,
+							m.ano,
+							m.janeiro,
+							m.fevereiro,
+							m.marco,
+							m.abril,
+							m.maio,
+							m.junho,
+							m.julho,
+							m.agosto,
+							m.setembro,
+							m.outubro,
+							m.novembro,
+							m.dezembro
+					FROM `mensalidades` as m
 
 					inner join pessoas as p
-					on f.id_socio = p.id
-					
-					inner join meses as g
-					on g.id = f.id_mes";	
+					on m.id_socio = p.id
+																			
+					";	
 
 			$this->data['mensalidade'] = R::getAll($sql);
             
@@ -78,60 +86,55 @@ class mensalidades extends Admin_Controller {
 
 		/* Validate form input */
 		$this->form_validation->set_rules('ano', 'ano', 'required');
-                
-        /* cria a tabela com seus campos */
-		if ($this->form_validation->run()) {
-			$mensal = R::dispense("mensalidades");
-            $mensal->id_socio = $this->input->post('id_socio');
-            $mensal->id_mes = $this->input->post('id_mes');
-            $mensal->ano = $this->input->post('ano');
-			$mensal->valor = $this->input->post('valor');
+		$this->form_validation->set_rules('valor', 'valor', 'required');
+		$this->form_validation->set_rules('id_socio', 'socio', 'required');
+		
+		/* cria a tabela com seus campos */
+			if ($this->form_validation->run() ) {
+					$mensal = R::dispense("mensalidades");
+					$mensal->id_socio = $this->input->post('id_socio');
+					$mensal->ano = $this->input->post('ano');
+					$mensal->valor = $this->input->post('valor');
 
-			R::store($mensal);
+					R::store($mensal);
 
-			$this->session->set_flashdata('message', "Dados gravados");
-            redirect('admin/mensalidades/', 'refresh');
-		} 
-        else {
-            $this->data['message'] = (validation_errors() ? validation_errors() : "");
+					$this->session->set_flashdata('message', "Dados gravados");
+					redirect('admin/mensalidades/', 'refresh');
+			} 
+			else {
+				$this->data['message'] = (validation_errors() ? validation_errors() : "");
 
-            $this->data['id_socio'] = array(
-                'name'  => 'id_socio',
-                'id'    => 'id_socio',
-                'options' => $this->getsocio(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('id_socio'),
-            );
-            
-            $this->data['id_mes'] = array(
-                'name'  => 'id_mes',
-                'id'    => 'id_mes',
-                'options' => $this->getmes(),
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('id_mes'),
-            );
-
-            $this->data['ano'] = array(
-                'name'  => 'ano',
-                'id'    => 'ano',
-                'type'  => 'int',
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('ano'),
-            );
-			
-			$this->data['valor'] = array(
-                'name'  => 'valor',
-                'id'    => 'valor',
-                'type'  => 'int',
-                'class' => 'form-control',
-                'value' => $this->form_validation->set_value('valor'),
-            );
-			
-        }         
+				$this->data['id_socio'] = array(
+					'name'  => 'id_socio',
+					'id'    => 'id_socio',
+					'options' => $this->getsocio(),
+					'class' => 'form-control',
+					'value' => $this->form_validation->set_value('id_socio'),
+				);
+				
+				$this->data['ano'] = array(
+					'name'  => 'ano',
+					'id'    => 'ano',
+					'type'  => 'int',
+					'class' => 'form-control',
+					'value' => $this->form_validation->set_value('ano'),
+				);
+				
+				$this->data['valor'] = array(
+					'name'  => 'valor',
+					'id'    => 'valor',
+					'type'  => 'int',
+					'class' => 'form-control',
+					'value' => $this->form_validation->set_value('valor'),
+				);
+				
+			} 
+		
+				
         /* Load Template */
         $this->template->admin_render('admin/mensalidades/create', $this->data);
     }
-    
+	
 	public function view($id){
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
             { redirect('auth/login', 'refresh'); }
@@ -192,7 +195,6 @@ class mensalidades extends Admin_Controller {
 		if (isset($_POST) && ! empty($_POST)) {
 			if ($this->form_validation->run()) {
 				$mensal->id_socio = $this->input->post('id_socio');
-				$mensal->id_mes = $this->input->post('id_mes');
 				$mensal->ano = $this->input->post('ano');
 				$mensal->valor = $this->input->post('valor');
 				R::store($mensal);
@@ -216,15 +218,6 @@ class mensalidades extends Admin_Controller {
 			'class' => 'form-control',
 			'value' => $mensal->id_socio,
 		);
-
-        $this->data['id_mes'] = array(
-			'name'  => 'id_mes',
-			'id'    => 'id_mes',
-			'selected'=>$mensal->id_mes,
-			'options' => $this->getmes(),
-			'class' => 'form-control',
-			'value' => $mensal->id_mes,
-        );
         
         $this->data['ano'] = array(
 			'name'  => 'ano',
@@ -266,45 +259,226 @@ class mensalidades extends Admin_Controller {
 		redirect('admin/mensalidades/', 'refresh');
 	}
 	//----ativado ou desativado-----------------
-	function activate($id) {
-		$id = (int) $id;
-	
-		$item = R::load("mensalidades", $id);
 
-		$item->ativo = 1;
-		
+	//----janeiro------------------
+	function active_jan($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->janeiro = 1;
 		R::store($item);
-		
 		$this->session->set_flashdata('message', "Item de Menu ativado");
 		redirect('admin/mensalidades', 'refresh');
 	}
 
-	public function deactivate($id) {
+	public function desactive_jan($id) {
 		$id = (int) $id;
-
 		$item = R::load("mensalidades", $id);
-		$item->ativo = 0;
-		
+		$item->janeiro = 0;
 		R::store($item);
-		
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----fevereiro------------------
+	function active_fev($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->fevereiro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_fev($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->fevereiro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----marco------------------
+	function active_mar($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->marco = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_mar($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->marco = 0;
+		R::store($item);
 		$this->session->set_flashdata('message', "Item de Menu desativado");		
 		redirect('admin/mensalidades', 'refresh');
 	}
 
-	//---gets-------------------------------------
-	public function getmes(){
-        $sql = "SELECT * FROM meses ";
-		
-        $options = array("0" => "Selecione Mes");
-                
-        $result = R::getAll($sql);        
+	//----abril------------------
+	function active_abr($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->abril = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
 
-		foreach ($result as $r) {   
-            $options[$r['id']] = $r['descricao'];           
-        }
-		return $options;
-    }
-	
+	public function desactive_abr($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->abril = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----maio------------------
+	function active_mai($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->maio = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_mai($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->maio = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----junho------------------
+	function active_jun($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->junho = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_jun($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->junho = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----julho------------------
+	function active_jul($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->julho = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_jul($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->julho = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----agosto------------------
+	function active_ago($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->agosto = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_ago($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->agosto = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	//----setembro------------------
+	function active_set($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->setembro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_set($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->setembro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----outubro------------------
+	function active_out($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->outubro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_out($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->outubro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----novembro------------------
+	function active_nov($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->novembro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_nov($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->novembro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//----dezembro------------------
+	function active_dez($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->dezembro = 1;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/mensalidades', 'refresh');
+	}
+
+	public function desactive_dez($id) {
+		$id = (int) $id;
+		$item = R::load("mensalidades", $id);
+		$item->dezembro = 0;
+		R::store($item);
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/mensalidades', 'refresh');
+	}
+	//---gets-------------------------------------
 	public function getsocio(){
         $sql = "SELECT * FROM pessoas";
 

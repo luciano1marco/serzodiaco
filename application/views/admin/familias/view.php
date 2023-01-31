@@ -2,24 +2,27 @@
 
 <div class="content-wrapper">
     <section class="content-header">
-        <?php echo $pagetitle; ?>
-        <?php echo $breadcrumb; ?>
-        <?php $anchor = 'admin/' . $this->router->class; ?>
-        <h3 class="box-title" align="center">Dados Pessoais</h3>
+        <?php $icon = '<i class="fa fa-' . $pageicon . '"></i>'; ?>
+		<?php echo $pagetitle; ?>
+		<?php echo $breadcrumb; ?>
+		<?php $anchor = 'admin/' . $this->router->class; ?>
+       
     </section>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <!------------------------------------------------------------------------------->
     <section class="content">
         <div class="row">
             <?php foreach ($parente as $p) : ?>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <!--1-dados do usuario da rede ------------------------------------------>
                     <div class="box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Dados do Parente  </h3>
-                            &nbsp;&nbsp;
-                              
-                        </div>
+                    <div class="panel panel-orange">
+							<div class="panel-heading">
+								<h3 align="center">
+                                    <?= $p['nome'] ?>
+								</h3>
+							</div>
+						</div>
 
                         <div class="box-body">
                             <div class="row">

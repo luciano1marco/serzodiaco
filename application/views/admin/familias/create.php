@@ -77,7 +77,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     $cancel = '<i class="fa fa-times"></i> <span>Cancelar</span>';
                                     ?>
 
-                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-success btn-flat', 'content' => $submit)); ?>
+                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-orange btn-flat', 'content' => $submit)); ?>
                                     <!-- (cancel)esta voltando para pessoas/index, para voltar para familias/index tem que pegar o id  ---->
                                     <?php echo anchor($anchor1, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
                                     <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-orange btn-flat', 'content' => $redo)); ?>

@@ -19,7 +19,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			<div class="col-md-12">
 				<div class="box">
 					<div class="box-header with-border">
-						<div class="panel panel-danger">
+						<div class="panel panel-orange">
 							<div class="panel-heading">
 								<h3 align="center">
 									<?php foreach ($socio as $f) : ?>
@@ -105,28 +105,62 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							<thead>
 								<tr>
 									<!--<th>ID</th>-->
-									<th>Mes</th>
 									<th>Ano</th>
-									<th>Pago</th>
+									<th>Valor</th>
+									<th>Jan</th>
+									<th>Fev</th>
+									<th>Mar</th>
+									<th>Abr</th>
+									<th>Mai</th>
+									<th>Jun</th>
+									<th>Jul</th>
+									<th>Ago</th>
+									<th>Set</th>
+									<th>Out</th>
+									<th>Nov</th>
+									<th>Dez</th>
 								</tr>
 							</thead>
-
 							<tbody>
 								<?php foreach ($mensalida as $i) : ?>
-									<?php 							
-								
-										$ativo = $i['ativo'];
-										if($ativo == 1)    
-											$resp = '<span class="label label-success">SIM</span>';
-										else 			     
-											$resp = '<span class="label label-default">NÃO</span>';
-									?>
+									<?php 
+										$janeiro   		= $i['janeiro'];
+										$fevereiro   	= $i['fevereiro'];
+										$marco		   	= $i['marco'];
+										$abril   		= $i['abril'];
+										$maio 		  	= $i['maio'];
+										$junho   		= $i['junho'];
+										$julho   		= $i['julho'];
+										$agosto   		= $i['agosto'];
+										$setembro   	= $i['setembro'];
+										$outubro   		= $i['outubro'];
+										$novembro   	= $i['novembro'];
+										$dezembro   	= $i['dezembro'];
+
+										 
+										$id 		= $i['id'];
+										// Para usar ID depois							
+										$id_check['value'] = $i['id'];
+
+										$sim = '<span class="label label-success">SIM</span>';
+										$nao = '<span class="label label-default">NÃO</span>';
+									?>  
 									<tr>
-										<td><?php echo htmlspecialchars($i['descricao'], ENT_QUOTES, 'UTF-8'); ?></td>
 										<td><?php echo htmlspecialchars($i['ano'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<td><?php echo htmlspecialchars($i['valor'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<td><?php echo ($janeiro) 	? anchor($anchor.'/desactive_jan/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_jan/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($fevereiro) ? anchor($anchor.'/desactive_fev/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_fev/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($marco) 	? anchor($anchor.'/desactive_mar/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_mar/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($abril) 	? anchor($anchor.'/desactive_abr/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_abr/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($maio) 		? anchor($anchor.'/desactive_mai/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_mai/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($junho) 	? anchor($anchor.'/desactive_jun/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_jun/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($julho) 	? anchor($anchor.'/desactive_jul/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_jul/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($agosto) 	? anchor($anchor.'/desactive_ago/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_ago/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($setembro) 	? anchor($anchor.'/desactive_set/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_set/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($outubro) 	? anchor($anchor.'/desactive_out/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_out/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($novembro) 	? anchor($anchor.'/desactive_nov/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_nov/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
+										<td><?php echo ($dezembro) 	? anchor($anchor.'/desactive_dez/'.$id. '/'. $i['id_socio'], $sim) : anchor($anchor.'/active_dez/'. $id. '/'. $i['id_socio'], $nao); ?></td>	
 										
-										<td><?php echo ($resp) ; ?></td>
-	                
 										
 									</tr>
 								<?php endforeach; ?>							
