@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="box-header with-border">
 						<div class="panel panel-danger">
 							<div class="panel-heading">
-								<h3 align="center">Quadro Social</h3>
+								<h3 align="center">Quadro Social - <?php echo date('Y'); ?></h3>
 							</div>
 						</div>
 					</div>

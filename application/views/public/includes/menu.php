@@ -54,7 +54,7 @@
             <div class="row ">
                 <div class="col-lg-12">
                     <div class="col-md-2">
-                        <a href="#">
+                        <a href="">
                             <img class="img-responsive" src="public/images/logo.png" >
                         </a>
                     </div>

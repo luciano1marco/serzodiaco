@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo $texto_edit; ?></h3>
+                        <h3 class="box-title">Editar Relação Cargo/Socio</h3>
                     </div>
                     <div class="box-body">
                         <?php echo $message; ?>
@@ -26,15 +26,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <?php echo form_fieldset('Dados'); ?>
 
                         <div class="form-group">
-                            <?php echo form_label('Descrição', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
+                            <?php echo form_label('Sócio', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
                             <div class="col-sm-6">
-                            <?php echo form_input($descricao); ?>
+                            <?php echo form_dropdown($id_socio); ?>
                             </div>
                         </div>
                         <div class="form-group">
-                            <?php echo form_label('Grupos', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
+                            <?php echo form_label('Cargo', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
                             <div class="col-sm-6">
-                            <?php echo form_dropdown($idgroups); ?>
+                            <?php echo form_dropdown($id_cargo); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <?php echo form_label('Data de Início', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
+                            <div class="col-sm-6">
+                            <?php echo form_input($dt_inicio); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <?php echo form_label('Data de Término', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
+                            <div class="col-sm-6">
+                            <?php echo form_input($dt_final); ?>
                             </div>
                         </div>
 
@@ -51,10 +63,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     $cancel = '<i class="fa fa-times"></i> <span>Cancelar</span>';
                                     ?>
 
-                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-primary btn-flat', 'content' => $submit)); ?>
-                                    <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => $redo)); ?>
-                                    <?php echo form_button(array('type' => 'button', 'class' => 'btn btn-danger btn-flat', 'content' => $delete, "id" => "btExcluir")); ?>
+                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-orange btn-flat', 'content' => $submit)); ?>
                                     <?php echo anchor($anchor, $cancel, array('class' => 'btn btn-default btn-flat')); ?>
+                                    <?php echo form_button(array('type' => 'button', 'class' => 'btn btn-orange btn-flat', 'content' => $delete, "id" => "btExcluir")); ?>
+                                   
                                 </div>
                             </div>
                         </div>
