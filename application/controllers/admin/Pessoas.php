@@ -69,7 +69,7 @@ class pessoas extends Admin_Controller {
             $pessoa->telefone = $this->input->post('telefone');
 			$pessoa->cpf = $this->input->post('cpf');
 			$pessoa->endereco = $this->input->post('endereco');
-            $pessoa->data_nasc = $this->input->post('data_nasc');
+            $pessoa->datanasc = $this->input->post('datanasc');
             
 			R::store($pessoa);
 
@@ -116,12 +116,12 @@ class pessoas extends Admin_Controller {
                 'class' => 'form-control',
                 'value' => $this->form_validation->set_value('endereco'),
             );
-			$this->data['data_nasc'] = array(
-                'name'  => 'data_nasc',
-                'id'    => 'data_nasc',
+			$this->data['datanasc'] = array(
+                'name'  => 'datanasc',
+                'id'    => 'datanasc',
                 'type'  => 'date',
                 'class' => 'form-control',
-                'value' => $this->form_validation->set_value('data_nasc'),
+                'value' => $this->form_validation->set_value('datanasc'),
             );
 
         }         
@@ -172,7 +172,7 @@ class pessoas extends Admin_Controller {
 				$pessoa->telefone = $this->input->post('telefone');
 				$pessoa->cpf = $this->input->post('cpf');
 				$pessoa->endereco = $this->input->post('endereco');
-				$pessoa->data_nasc = $this->input->post('data_nasc');
+				$pessoa->datanasc = $this->input->post('datanasc');
 				
 				R::store($pessoa);
 
@@ -224,12 +224,12 @@ class pessoas extends Admin_Controller {
 			'class' => 'form-control',
 			'value' => $pessoa->endereco,
 		);
-		$this->data['data_nasc'] = array(
-			'name'  => 'data_nasc',
-			'id'    => 'data_nasc',
+		$this->data['datanasc'] = array(
+			'name'  => 'datanasc',
+			'id'    => 'datanasc',
 			'type'  => 'date',
 			'class' => 'form-control',
-			'value' => $pessoa->data_nasc,
+			'value' => $pessoa->datanasc,
 		);
 
 		/* Load Template */

@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="box-header with-border">
 						<div class="panel panel-danger">
 							<div class="panel-heading">
-								<h3 align="center">Lista de Todos os Socios do Zodíaco</h3>
+								<h3 align="center">Quadro Social</h3>
 							</div>
 						</div>
 					</div>
@@ -31,13 +31,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<thead>
 								<tr>
 									<th>Socio</th>
+                                    <th>Jan</th>
+                                    <th>Fev</th>
+                                    <th>Mar</th>
+                                    <th>Abr</th>
+                                    <th>Mai</th>
+                                    <th>Jun</th>
+                                    <th>Jul</th>
+                                    <th>Ago</th>
+                                    <th>Set</th>
+                                    <th>Out</th>
+                                    <th>Nov</th>
+                                    <th>Dez</th>
+                                    
+                                    
 								</tr>
 							</thead>
 							<tbody>
 								<?php foreach ($socio as $apa) : ?>
+
+                                    <?php 
+                                    $sim = '<span class="label label-success">SIM</span>';
+                                    $nao = '<span class="label label-default">NÃO</span>';
+                                   
+                                   // var_dump($apa['janeiro']);
+                                   // die;
+                                    if($apa['janeiro']  == 1){$janeiro= $sim;   }else{$janeiro= $nao;}
+                                    if($apa['fevereiro']== 1){$fevereiro= $sim; }else{$fevereiro= $nao;}
+                                    if($apa['marco']    == 1){$marco= $sim;     }else{$marco= $nao;}
+                                    if($apa['abril']    == 1){$abril= $sim;     }else{$abril= $nao;}
+                                    if($apa['maio']     == 1){$maio= $sim;      }else{$maio= $nao;}
+                                    if($apa['junho']    == 1){$junho= $sim;     }else{$junho= $nao;}
+                                    if($apa['julho']    == 1){$julho= $sim;     }else{$julho= $nao;}
+                                    if($apa['agosto']   == 1){$agosto= $sim;    }else{$agosto= $nao;}
+                                    if($apa['setembro'] == 1){$setembro= $sim;  }else{$setembro= $nao;}
+                                    if($apa['outubro']  == 1){$outubro= $sim;   }else{$outubro= $nao;}
+                                    if($apa['novembro'] == 1){$novembro= $sim;  }else{$novembro= $nao;}
+                                    if($apa['dezembro'] == 1){$dezembro= $sim;  }else{$dezembro= $nao;}
+                                    
+
+                                     ?>
 									<tr>
-										<td><?php echo htmlspecialchars($apa['nome'], ENT_QUOTES, 'UTF-8'); ?></td>
-									</tr>
+                                        <td><?php echo htmlspecialchars($apa['socio'], ENT_QUOTES, 'UTF-8'); ?></td>
+										
+                                        <td><?php echo ($janeiro)   ?></td>	
+										<td><?php echo ($fevereiro) ?></td>	
+										<td><?php echo ($marco)     ?></td>	
+										<td><?php echo ($abril) 	?></td>	
+										<td><?php echo ($maio) 		?></td>	
+										<td><?php echo ($junho) 	?></td>	
+										<td><?php echo ($julho) 	?></td>	
+										<td><?php echo ($agosto) 	?></td>	
+										<td><?php echo ($setembro) 	?></td>	
+										<td><?php echo ($outubro) 	?></td>	
+										<td><?php echo ($novembro) 	?></td>	
+										<td><?php echo ($dezembro) 	?></td>	
+										
+                                    </tr>
 								<?php endforeach; ?>
 							</tbody>
 						</table>

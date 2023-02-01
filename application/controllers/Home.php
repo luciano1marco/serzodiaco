@@ -37,9 +37,29 @@ class Home extends Public_Controller {
         $php = configuracao_PHP();
 
         // pessoas
-        $sql = "Select s.id, s.nome, s.ativo
-					From pessoas s
-					where s.ativo = 1";
+        $sql = "SELECT 	m.id,
+                        m.id_socio, 
+                        p.nome as socio,
+                        m.valor,
+                        m.ano,
+                        m.janeiro,
+                        m.fevereiro,
+                        m.marco,
+                        m.abril,
+                        m.maio,
+                        m.junho,
+                        m.julho,
+                        m.agosto,
+                        m.setembro,
+                        m.outubro,
+                        m.novembro,
+                        m.dezembro
+                FROM `mensalidades` as m
+
+                inner join pessoas as p
+                on m.id_socio = p.id
+				
+                where p.ativo = 1 and m.ano = Year(now())";
 		
 		$this->data['socio'] = R::getAll($sql);
         

@@ -96,7 +96,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item"  href="/serzodiaco/register">Seja Socio</a>
-                                    <a class="dropdown-item" href="/serzodiaco/home/listar/">Listar Socios</a>
+                                    <a class="dropdown-item" href="/serzodiaco/home/listar/">Quadro Social</a>
                                 </div>
                             </div>
                             <div class="dropdown">

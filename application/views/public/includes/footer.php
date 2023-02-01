@@ -3,137 +3,138 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <!--teste de footer-- #350B31--->    
-<style>
-#myFooter {
-    background-color: #350B31;
-    color: white;
-    padding-top: 0px;
-}
+    <style>
+        #myFooter {
+            background-color: #350B31;
+            color: white;
+            padding-top: 0px;
+        }
 
-#myFooter .row {
-    margin-bottom: 60px;
-}
+        #myFooter .row {
+            margin-bottom: 60px;
+        }
 
-#myFooter .navbar-brand {
-    margin-top: 45px;
-    height: 65px;
-}
+        #myFooter .navbar-brand {
+            margin-top: 45px;
+            height: 65px;
+        }
 
-#myFooter ul {
-    list-style-type: none;
-    padding-left: 0;
-    line-height: 1.7;
-}
+        #myFooter ul {
+            list-style-type: none;
+            padding-left: 0;
+            line-height: 1.7;
+        }
 
-#myFooter a {
-    color: #d2d1d1;
-    text-decoration: none;
-}
+        #myFooter a {
+            color: #d2d1d1;
+            text-decoration: none;
+        }
 
-#myFooter a:hover,
-#myFooter a:focus {
-    text-decoration: none;
-    color: white;
-}
-
-
-#myFooter .btn {
-    color: white;
-    background-color: #d84b6b;
-    border-radius: 20px;
-    border: none;
-    width: 50px;
-    display: block;
-    margin: 0 auto;
-    
-    line-height: 25px;
-}
-#myFooter .span{
-    margin-top: 50;
-}
-
-@media screen and (max-width: 767px) {
-    #myFooter {
-        text-align: center;
-    }
-}
+        #myFooter a:hover,
+        #myFooter a:focus {
+            text-decoration: none;
+            color: white;
+        }
 
 
-/* CSS used for positioning the footers at the bottom of the page. */
-/* You can remove this. */
+        #myFooter .btn {
+            color: white;
+            background-color: #d84b6b;
+            border-radius: 20px;
+            border: none;
+            width: 50px;
+            display: block;
+            margin: 0 auto;
+            
+            line-height: 25px;
+        }
+        #myFooter .span{
+            margin-top: 50;
+        }
 
-html{
-    height: 100%;
-}
+        @media screen and (max-width: 767px) {
+            #myFooter {
+                text-align: center;
+            }
+        }
 
-body{
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    -webkit-flex-direction: column;
-    height: 100%;
-}
 
-.content{
-   flex: 1 0 auto;
-   -webkit-flex: 1 0 auto;
-   min-height: 100px;
-}
+        /* CSS used for positioning the footers at the bottom of the page. */
+        /* You can remove this. */
 
-#myFooter{
-   flex: 0 0 auto;
-   -webkit-flex: 0 0 auto;
-}
-#direito{
-    margin-top: 300;
-}
-div.topo {
-    background:#FB924B;
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    /*tentar usar z-index para aparecer apartir da segunda pagina*/
-}
-#myFooter h3 {
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
-    margin-top: 30px;
-    color: #992691;
-}
-#myFooter h4 {
-    font-weight: bold;
-    font-size: 35px;
-    text-align: center;
-    margin-top: 30px;
-    color: #FB893B;
-}
-#myFooter h5 {
-    
-    font-size: 17px;
-    text-align: left;
-    margin-top: 30px;
-    color: #FFFFFF;
-}
-span{
-    background-color:#350B31;
-    color:#FFFFFF;
-}
-.map-responsive{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
+        html{
+            height: 100%;
+        }
 
-.map-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-}
-</style> 
+        body{
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            -webkit-flex-direction: column;
+            height: 100%;
+        }
+
+        .content{
+        flex: 1 0 auto;
+        -webkit-flex: 1 0 auto;
+        min-height: 100px;
+        }
+
+        #myFooter{
+        flex: 0 0 auto;
+        -webkit-flex: 0 0 auto;
+        }
+        #direito{
+            margin-top: 300;
+        }
+        div.topo {
+            background:#FB924B;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            /*tentar usar z-index para aparecer apartir da segunda pagina*/
+        }
+        #myFooter h3 {
+            font-weight: bold;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 30px;
+            color: #992691;
+        }
+        #myFooter h4 {
+            font-weight: bold;
+            font-size: 35px;
+            text-align: center;
+            margin-top: 30px;
+            color: #FB893B;
+        }
+        #myFooter h5 {
+            
+            font-size: 17px;
+            text-align: left;
+            margin-top: 30px;
+            color: #FFFFFF;
+        }
+        span{
+            background-color:#350B31;
+            color:#FFFFFF;
+        }
+        .map-responsive{
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+        }
+
+        .map-responsive iframe{
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+        }
+    </style> 
+
    <footer id="myFooter">
        <div class="row"> </div>
         <div class="content-fluid">
@@ -147,7 +148,10 @@ span{
                 <div class="col-sm-6">
                     <h5>Endereço: Rua Apelles Porto Alegre, 60 </h5>
                     <h5> Rio Grande - RS, 96200-060</h5>
-                    <h5>Telefone: (53)56445654</h5>   
+                    <h5>Telefone: (53)56445654</h5> 
+                    <a href="/serzodiaco/register">
+                        <img class="img-responsive" src="http://localhost/serzodiaco/public/images/sejasocio.png" >
+                    </a>  
                 </div>
                 <div class="col-sm-6">
                     <h5>Localização - Nossa Sede</h5>
@@ -175,7 +179,7 @@ span{
         </div>
         
     </footer>
-    <span> Todos direitos reseverdos ₢2022@serzodiaco </span> 
+    <span> Todos direitos reseverdos #luciano1marco </span> 
              
     
     <!-- END -->

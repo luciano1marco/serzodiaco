@@ -61,7 +61,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="form-group">
                             <?php echo form_label('Data de Nascimento', 'descricao', array('class' => 'col-sm-2 control-label')); ?>
                             <div class="col-sm-6">
-                            <?php echo form_input($data_nasc); ?>
+                            <?php echo form_input($datanasc); ?>
                             </div>
                         </div>
                         <?php echo form_fieldset_close(); ?>
