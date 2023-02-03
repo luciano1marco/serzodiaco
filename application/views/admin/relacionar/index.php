@@ -38,23 +38,38 @@ defined('BASEPATH') or exit('No direct script access allowed');
 									<th>Cargo</th>
 									<th>Data de Início</th>
 									<th>Data de Término</th>
+									<th>Ativo</th>
 									<th>Ação</th>
 								</tr>
 							</thead>
 
 							<tbody>
 
-								<?php foreach ($relaciona as $ti) : ?>
+								<?php foreach ($relaciona as $i) : ?>
+									<?php 							
+								
+										$ativo   	= $i['ativo'];
+										$id 		= $i['id'];
+										// Para usar ID depois							
+										$id_check['value'] = $i['id'];
+
+										$sim = '<span class="label label-success">SIM</span>';
+										$nao = '<span class="label label-default">NÃO</span>';
+									?>
+
+									
 									<tr>
 
-										<td><?php echo htmlspecialchars($ti['nome'], ENT_QUOTES, 'UTF-8'); ?></td>
-										<td><?php echo htmlspecialchars($ti['descricao'], ENT_QUOTES, 'UTF-8'); ?></td>
-										<td><?php echo htmlspecialchars($ti['dt_inicio'], ENT_QUOTES, 'UTF-8'); ?></td>
-										<td><?php echo htmlspecialchars($ti['dt_final'], ENT_QUOTES, 'UTF-8'); ?></td>
-										
+										<td><?php echo htmlspecialchars($i['nome'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<td><?php echo htmlspecialchars($i['descricao'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<td><?php echo htmlspecialchars($i['dt_inicio'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<td><?php echo htmlspecialchars($i['dt_final'], ENT_QUOTES, 'UTF-8'); ?></td>
+										<!-- Publicado -->
+										<td><?php echo ($ativo) ? anchor($anchor.'/deactivate/'.$id, $sim) : anchor($anchor.'/activate/'. $id, $nao); ?></td>
+
 										<!-- Opções -->
 										<td>
-											<?php echo anchor($anchor . '/edit/' . $ti['id'], "<button class=\"btn btn-orange\"><i class=\"fa fa-pencil\"></i> Editar</button>"); ?>
+											<?php echo anchor($anchor . '/edit/' . $i['id'], "<button class=\"btn btn-orange\"><i class=\"fa fa-pencil\"></i> Editar</button>"); ?>
 										</td>
 
 									</tr>

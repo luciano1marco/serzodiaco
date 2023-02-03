@@ -121,9 +121,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-md-12" >
                     <div class="col-lg-4">
                         <h3>Diretoria Atual</h3>
-                        <h5>Diretor: Gilmar fulano de Tal da silva</h5>
-                        <h5>Vice-Diretor:</h5>
-                        <h5>Diretor:</h5>
+                        <br>   
+                        <?php foreach ($diretoria as $row): ?>
+                            <h5><?php echo $row['descricao']; ?>: <?php echo $row['nome'];?> </h5><br>
+                        <?php endforeach;?> 
+                           
                     </div>
                     <div class="col-md-6" >
                         <h3> </h3>

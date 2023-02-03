@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
         <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
 
-        <title>Procure Psicóloga</title>
+        <title>S.E.R. Zodíaco</title>
         
         
         <!-- Normalize -->

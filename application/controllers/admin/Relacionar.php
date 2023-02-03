@@ -28,14 +28,16 @@ class relacionar extends Admin_Controller {
                   /* Data */
                   $this->data['error'] = NULL;
                   
-                  $sql="    SELECT r.id, p.nome, c.descricao, r.dt_inicio,r.dt_final
+                  $sql="    SELECT r.id, p.nome,r.ativo, c.descricao, r.dt_inicio,r.dt_final
                             FROM relacionar as r
                   
                             inner join pessoas as p
                             on p.id = r.id_socio
                             
                             inner join cargos as c
-                            on c.id = r.id_cargo ";  
+                            on c.id = r.id_cargo
+                            
+                             ";  
 
                     $this->data['relaciona'] = R::getAll($sql);
                   
@@ -211,7 +213,31 @@ class relacionar extends Admin_Controller {
         }
 		return $options;
     }
+    //----active e desactive---
+    function activate($id) {
+		$id = (int) $id;
+	
+		$item = R::load("relacionar", $id);
 
+		$item->ativo = 1;
+		
+		R::store($item);
+		
+		$this->session->set_flashdata('message', "Item de Menu ativado");
+		redirect('admin/relacionar', 'refresh');
+	}
+
+	public function deactivate($id) {
+		$id = (int) $id;
+
+		$item = R::load("relacionar", $id);
+		$item->ativo = 0;
+		
+		R::store($item);
+		
+		$this->session->set_flashdata('message', "Item de Menu desativado");		
+		redirect('admin/relacionar', 'refresh');
+	}
 
 
 }//fim da classe
