@@ -63,8 +63,9 @@ class pessoas extends Admin_Controller {
                 
         /* cria a tabela com seus campos */
 		if ($this->form_validation->run()) {
+			
 			$pessoa = R::dispense("pessoas");
-            $pessoa->nome = $this->input->post('nome');
+            $pessoa->nome =strtoupper($this->input->post('nome'));
             $pessoa->email = $this->input->post('email');
             $pessoa->telefone = $this->input->post('telefone');
 			$pessoa->cpf = $this->input->post('cpf');
@@ -167,7 +168,7 @@ class pessoas extends Admin_Controller {
 
 		if (isset($_POST) && ! empty($_POST)) {
 			if ($this->form_validation->run()) {
-				$pessoa->nome = $this->input->post('nome');
+				$pessoa->nome = strtoupper($this->input->post('nome'));
 				$pessoa->email = $this->input->post('email');
 				$pessoa->telefone = $this->input->post('telefone');
 				$pessoa->cpf = $this->input->post('cpf');
